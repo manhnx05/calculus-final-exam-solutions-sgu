@@ -1,249 +1,422 @@
-\section*{Solutions: Exam 3 - Functional Analysis}
+% ================================================================
+% LỜI GIẢI ĐỀ THI 3: GIẢI TÍCH HÀM
+% Lời giải chi tiết với các bước giải rõ ràng
+% ================================================================
 
-\subsection{Problem 1a: Proving $\|\cdot\|$ is a Norm}
+\section*{Lời giải Đề 3: Giải tích hàm}
+\addcontentsline{toc}{section}{Lời giải Đề 3: Giải tích hàm}
+
+% ================================================================
+% CÂU 1A: CHỨNG MINH $\|\cdot\|$ LÀ MỘT CHUẨN
+% ================================================================
+\subsection*{Câu 1a: Chứng minh $\|\cdot\|$ là một chuẩn}
+
+\begin{questionbox}
+Trên không gian véctơ $\mathbb{R}^2$, xét hàm số $\|(x, y)\| = 2|x| + |y|$ với mọi $(x, y) \in \mathbb{R}^2$. Chứng minh rằng hàm số này là một chuẩn trên $\mathbb{R}^2$.
+\end{questionbox}
 
 \begin{solution}
-Given: $\|(x,y)\| = 2|x| + |y|$ on $\mathbb{R}^2$
+Cho hàm số: $\|(x,y)\| = 2|x| + |y|$ trên $\mathbb{R}^2$.
+Để chứng minh hàm số này là một chuẩn, ta cần kiểm tra ba tiên đề:
 
-We verify the norm axioms:
+\textit{Tính xác định dương}
+Với mọi $(x,y) \in \mathbb{R}^2$, ta có $|x| \geq 0$ và $|y| \geq 0$, do đó:
+\[ 
+    \|(x,y)\| = 2|x| + |y| \geq 0 
+\]
+Dấu bằng xảy ra khi và chỉ khi:
+\[ 
+    \|(x,y)\| = 0 \Leftrightarrow 2|x| + |y| = 0 \Leftrightarrow 
+    \begin{cases}
+        |x| = 0 \\
+        |y| = 0
+    \end{cases}
+    \Leftrightarrow (x,y) = (0,0)
+\]
+Vậy tiên đề xác định dương thỏa mãn. $\checkmark$
 
-\textbf{1) Positive Definiteness:}
-$$\|(x,y)\| = 2|x| + |y| \geq 0$$
+\textit{Tính thuần nhất bậc nhất}
+Với mọi $\lambda \in \mathbb{R}$ và $(x,y) \in \mathbb{R}^2$, ta có:
+\begin{align*}
+    \|(\lambda x, \lambda y)\| &= 2|\lambda x| + |\lambda y| \\
+    &= 2|\lambda||x| + |\lambda||y| \\
+    &= |\lambda|(2|x| + |y|) \\
+    &= |\lambda| \cdot \|(x,y)\|
+\end{align*}
+Vậy tiên đề thuần nhất bậc nhất thỏa mãn. $\checkmark$
 
-$\|(x,y)\| = 0 \Leftrightarrow 2|x| + |y| = 0 \Leftrightarrow |x| = 0 \text{ and } |y| = 0 \Leftrightarrow (x,y) = (0,0)$ ✓
+\textit{Bất đẳng thức tam giác}
+Với mọi $u=(x_1, y_1)$ và $v=(x_2, y_2) \in \mathbb{R}^2$, ta có:
+\begin{align*}
+    \|u+v\| &= \|(x_1+x_2, y_1+y_2)\| \\
+    &= 2|x_1+x_2| + |y_1+y_2| \\
+    &\leq 2(|x_1| + |x_2|) + (|y_1| + |y_2|) \quad \text{(theo BĐT trị tuyệt đối)} \\
+    &= (2|x_1| + |y_1|) + (2|x_2| + |y_2|) \\
+    &= \|u\| + \|v\|
+\end{align*}
+Vậy tiên đề bất đẳng thức tam giác thỏa mãn. $\checkmark$
 
-\textbf{2) Homogeneity:} For $\lambda \in \mathbb{R}$:
-$$\|(\lambda x, \lambda y)\| = 2|\lambda x| + |\lambda y| = 2|\lambda||x| + |\lambda||y|$$
-$$= |\lambda|(2|x| + |y|) = |\lambda| \cdot \|(x,y)\|$$ ✓
-
-\textbf{3) Triangle Inequality:} For $(x_1, y_1), (x_2, y_2) \in \mathbb{R}^2$:
-$$\|(x_1+x_2, y_1+y_2)\| = 2|x_1+x_2| + |y_1+y_2|$$
-$$\leq 2(|x_1| + |x_2|) + (|y_1| + |y_2|)$$
-$$= (2|x_1| + |y_1|) + (2|x_2| + |y_2|)$$
-$$= \|(x_1,y_1)\| + \|(x_2,y_2)\|$$ ✓
-
-\textbf{Conclusion:} $\|\cdot\|$ is a norm on $\mathbb{R}^2$.
-
+\textit{Kết luận:} Hàm số $\|\cdot\|$ là một chuẩn trên $\mathbb{R}^2$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 1b: Unit Ball Visualization}
+% ================================================================
+% CÂU 1B: HÌNH DUNG QUẢ CẦU ĐƠN VỊ
+% ================================================================
+\subsection*{Câu 1b: Hình dung quả cầu đơn vị}
+
+\begin{questionbox}
+Hãy mô tả hình học quả cầu đơn vị đóng $\overline{B}(0, 1) = \{ (x, y) \in \mathbb{R}^2 : \|(x, y)\| \leq 1 \}$ trong mặt phẳng tọa độ $Oxy$.
+\end{questionbox}
 
 \begin{solution}
-The closed unit ball is:
-$$\overline{B(0,1)} = \{(x,y) : 2|x| + |y| \leq 1\}$$
+Quả cầu đơn vị đóng là tập hợp: $\overline{B}(0,1) = \{(x,y) \in \mathbb{R}^2 : 2|x| + |y| \leq 1\}$.
 
-This describes a rhombus (diamond shape) with vertices:
-- When $y = 0$: $2|x| \leq 1 \Rightarrow x \in [-1/2, 1/2]$, vertices at $(\pm 1/2, 0)$
-- When $x = 0$: $|y| \leq 1 \Rightarrow y \in [-1, 1]$, vertices at $(0, \pm 1)$
+\textit{Phân tích theo các góc phần tư}
+Bất phương trình $2|x| + |y| \leq 1$ được xét theo các trường hợp sau:
+\begin{itemize}
+    \item Góc phần tư thứ I ($x \geq 0, y \geq 0$): $2x + y \leq 1$
+    \item Góc phần tư thứ II ($x \leq 0, y \geq 0$): $-2x + y \leq 1$
+    \item Góc phần tư thứ III ($x \leq 0, y \leq 0$): $-2x - y \leq 1$
+    \item Góc phần tư thứ IV ($x \geq 0, y \leq 0$): $2x - y \leq 1$
+\end{itemize}
 
-\textbf{Vertices of the unit ball:}
-$$(1/2, 0), \quad (0, 1), \quad (-1/2, 0), \quad (0, -1)$$
+\textit{Xác định các đỉnh của hình}
+Các đường thẳng tương ứng cắt các trục tọa độ tạo thành một đa giác. Ta tìm các giao điểm với các trục:
+\begin{itemize}
+    \item Giao với trục $Ox$ ($y = 0$): $2|x| \leq 1 \Rightarrow |x| \leq \dfrac{1}{2}$, tạo ra hai đỉnh $\left(\dfrac{1}{2}, 0\right)$ và $\left(-\dfrac{1}{2}, 0\right)$.
+    \item Giao với trục $Oy$ ($x = 0$): $|y| \leq 1$, tạo ra hai đỉnh $(0, 1)$ và $(0, -1)$.
+\end{itemize}
 
-\textbf{Edges:}
-- Upper right: $x \geq 0, y \geq 0$: $2x + y = 1$ (line from $(1/2, 0)$ to $(0, 1)$)
-- Upper left: $x \leq 0, y \geq 0$: $-2x + y = 1$ (line from $(0, 1)$ to $(-1/2, 0)$)
-- Lower left: $x \leq 0, y \leq 0$: $-2x - y = 1$ (line from $(-1/2, 0)$ to $(0, -1)$)
-- Lower right: $x \geq 0, y \leq 0$: $2x - y = 1$ (line from $(0, -1)$ to $(1/2, 0)$)
+\textit{Mô tả hình học}
+Kết hợp các giao điểm và các nửa mặt phẳng trên, ta thấy miền giới hạn là một hình thoi.
+Hình thoi này có:
+\begin{itemize}
+    \item Tâm tại gốc tọa độ $O(0,0)$.
+    \item Bán trục nằm ngang có độ dài $\dfrac{1}{2}$.
+    \item Bán trục thẳng đứng có độ dài $1$.
+\end{itemize}
 
-The unit ball is a rhombus centered at the origin with:
-- Horizontal axis semi-length: $1/2$
-- Vertical axis semi-length: $1$
-
-\textbf{Diagram:}
-$$
-\begin{array}{c}
-     & (0,1) \\
-(-1/2, 0) & \text{●} & (1/2, 0) \\
-     & (0,-1)
-\end{array}
-$$
-(Connected by straight line segments forming a rhombus)
-
+\textit{Kết luận:} Quả cầu đơn vị đóng là một hình thoi với các đỉnh tại $\left(\dfrac{1}{2}, 0\right)$, $(0, 1)$, $\left(-\dfrac{1}{2}, 0\right)$, và $(0, -1)$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 2a: Continuity of Linear Map}
+% ================================================================
+% CÂU 2A: TÍNH LIÊN TỤC CỦA ÁNH XẠ TUYẾN TÍNH
+% ================================================================
+\subsection*{Câu 2a: Tính liên tục của ánh xạ tuyến tính}
+
+\begin{questionbox}
+Xét không gian các hàm số liên tục $X = C([0, 1])$ với chuẩn $\|f\|_\infty = \max_{x \in [0, 1]} |f(x)|$. Xét ánh xạ $T : X \to X$ xác định bởi: $(Tf)(x) = x \int_0^1 y^2 f(y) dy$, với mọi $f \in X$. Chứng minh $T$ là một toán tử tuyến tính liên tục.
+\end{questionbox}
 
 \begin{solution}
-Given: $T: C([0,1]) \to C([0,1])$ defined by $(Tf)(x) = x \int_0^1 y^2 f(y) dy$
+Cho ánh xạ $T: C([0,1]) \to C([0,1])$ xác định bởi $(Tf)(x) = x \int_0^1 y^2 f(y) dy$.
 
-We prove $T$ is linear and continuous.
+\textit{Chứng minh tính tuyến tính}
+Với mọi $f, g \in X$ và mọi hằng số $\alpha, \beta \in \mathbb{R}$, ta có:
+\begin{align*}
+    T(\alpha f + \beta g)(x) &= x \int_0^1 y^2 (\alpha f(y) + \beta g(y)) dy \\
+    &= \alpha \left( x \int_0^1 y^2 f(y) dy \right) + \beta \left( x \int_0^1 y^2 g(y) dy \right) \\
+    &= \alpha (Tf)(x) + \beta (Tg)(x)
+\end{align*}
+Điều này đúng với mọi $x \in [0,1]$, do đó $T(\alpha f + \beta g) = \alpha Tf + \beta Tg$. 
+Vậy $T$ là một ánh xạ tuyến tính. $\checkmark$
 
-\textbf{Linearity:} For $f, g \in X$ and $\alpha, \beta \in \mathbb{R}$:
-$$T(\alpha f + \beta g)(x) = x \int_0^1 y^2 (\alpha f(y) + \beta g(y)) dy$$
-$$= \alpha x \int_0^1 y^2 f(y) dy + \beta x \int_0^1 y^2 g(y) dy$$
-$$= \alpha (Tf)(x) + \beta (Tg)(x)$$
+\textit{Chứng minh tính liên tục (tính bị chặn)}
+Để chứng minh $T$ liên tục, ta chỉ cần chứng minh $T$ bị chặn.
+Với mọi $f \in X$ và $x \in [0,1]$, ta có đánh giá:
+\begin{align*}
+    |(Tf)(x)| &= \left| x \int_0^1 y^2 f(y) dy \right| \\
+    &\leq |x| \int_0^1 y^2 |f(y)| dy
+\end{align*}
+Vì $x \in [0,1]$ nên $|x| \leq 1$. Đồng thời $|f(y)| \leq \|f\|_\infty$ với mọi $y \in [0,1]$. Khi đó:
+\begin{align*}
+    |(Tf)(x)| &\leq 1 \cdot \int_0^1 y^2 \|f\|_\infty dy \\
+    &= \|f\|_\infty \left[ \dfrac{y^3}{3} \right]_0^1 = \dfrac{1}{3} \|f\|_\infty
+\end{align*}
+Lấy supremum hai vế theo $x \in [0,1]$, ta được:
+\[
+    \|Tf\|_\infty = \max_{x \in [0,1]} |(Tf)(x)| \leq \dfrac{1}{3} \|f\|_\infty
+\]
+Vì tồn tại hằng số $M = \dfrac{1}{3} > 0$ sao cho $\|Tf\|_\infty \leq M\|f\|_\infty$ với mọi $f \in X$, nên $T$ là toán tử bị chặn, do đó liên tục. $\checkmark$
 
-So $T(\alpha f + \beta g) = \alpha Tf + \beta Tg$. ✓
-
-\textbf{Continuity:} For $f \in X$:
-$$|(Tf)(x)| = \left|x \int_0^1 y^2 f(y) dy\right| \leq |x| \cdot \left|\int_0^1 y^2 f(y) dy\right|$$
-
-$$\leq |x| \int_0^1 y^2 |f(y)| dy \leq |x| \cdot 1 \cdot \|f\|_\infty$$
-
-Thus:
-$$\|Tf\|_\infty = \max_{x \in [0,1]} |(Tf)(x)| \leq \|f\|_\infty$$
-
-So $\|Tf\| \leq \|f\|$, and $T$ is continuous. ✓
-
+\textit{Kết luận:} $T$ là một toán tử tuyến tính liên tục. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 2b: Operator Norm}
+% ================================================================
+% CÂU 2B: CHUẨN TOÁN TỬ
+% ================================================================
+\subsection*{Câu 2b: Chuẩn toán tử}
+
+\begin{questionbox}
+Tính chuẩn toán tử $\|T\|_{B(X, X)}$.
+\end{questionbox}
 
 \begin{solution}
-We need to find:
-$$\|T\|_{B(X,X)} = \sup_{\|f\| \leq 1} \|Tf\|$$
+\textit{Đánh giá chặn trên của chuẩn toán tử}
+Từ chứng minh ở câu a, ta đã chỉ ra rằng $\|Tf\|_\infty \leq \dfrac{1}{3}\|f\|_\infty$ với mọi $f \in X$.
+Theo định nghĩa chuẩn toán tử, ta suy ra:
+\[ 
+    \|T\|_{B(X,X)} = \sup_{f \neq 0} \dfrac{\|Tf\|_\infty}{\|f\|_\infty} \leq \dfrac{1}{3}
+\]
 
-From above, $\|Tf\| \leq \|f\|$, so $\|T\|_{B(X,X)} \leq 1$.
+\textit{Tìm hàm đạt cực trị}
+Để chứng minh $\|T\|_{B(X,X)} = \dfrac{1}{3}$, ta cần tìm một hàm $f_0 \in X$ (với $f_0 \neq 0$) sao cho $\|Tf_0\|_\infty = \dfrac{1}{3}\|f_0\|_\infty$.
+Chọn hàm $f_0(x) = 1$ với mọi $x \in [0,1]$. Rõ ràng $f_0$ liên tục trên $[0,1]$ và:
+\[ 
+    \|f_0\|_\infty = \max_{x \in [0,1]} |1| = 1 
+\]
 
-To show the bound is tight, consider $f(x) = 1$ (constant function):
-$$\|f\| = 1$$
-$$(Tf)(x) = x \int_0^1 y^2 \cdot 1 \, dy = x \cdot \frac{1}{3} = \frac{x}{3}$$
+\textit{Tính toán tử trên hàm $f_0$}
+Áp dụng toán tử $T$ lên $f_0$, ta được:
+\[ 
+    (Tf_0)(x) = x \int_0^1 y^2 f_0(y) dy = x \int_0^1 y^2 \cdot 1 dy = x \left[ \dfrac{y^3}{3} \right]_0^1 = \dfrac{x}{3}
+\]
+Tính chuẩn của $Tf_0$:
+\[ 
+    \|Tf_0\|_\infty = \max_{x \in [0,1]} \left| \dfrac{x}{3} \right| = \dfrac{1}{3}
+\]
 
-$$\|Tf\|_\infty = \max_{x \in [0,1]} \frac{x}{3} = \frac{1}{3}$$
+\textit{Tính chuẩn toán tử}
+Từ đó, ta có:
+\[
+    \dfrac{\|Tf_0\|_\infty}{\|f_0\|_\infty} = \dfrac{1/3}{1} = \dfrac{1}{3}
+\]
+Điều này chứng tỏ $\sup \dfrac{\|Tf\|_\infty}{\|f\|_\infty} \geq \dfrac{1}{3}$. 
+Kết hợp với chặn trên, ta có đẳng thức.
 
-Now try $f(x) = x$:
-$$(Tf)(x) = x \int_0^1 y^2 \cdot y \, dy = x \int_0^1 y^3 dy = x \cdot \frac{1}{4} = \frac{x}{4}$$
-
-$$\|Tf\|_\infty = \frac{1}{4}$$
-
-Actually, let me reconsider. For general $f$:
-$$\|Tf\|_\infty = \max_{x \in [0,1]} \left|x \int_0^1 y^2 f(y) dy\right| = \left|\int_0^1 y^2 f(y) dy\right| \cdot \max_{x \in [0,1]} |x|$$
-
-$$= \left|\int_0^1 y^2 f(y) dy\right| \cdot 1 = \left|\int_0^1 y^2 f(y) dy\right|$$
-
-By Cauchy-Schwarz (or directly):
-$$\left|\int_0^1 y^2 f(y) dy\right| \leq \int_0^1 y^2 |f(y)| dy \leq \|f\|_\infty \int_0^1 y^2 dy = \frac{1}{3}\|f\|_\infty$$
-
-The maximum is approached when $f(y) = \text{sign}(y^2 f(y))$ with $|f| = 1$, giving:
-$$\|Tf\|_\infty = \frac{1}{3}$$
-
-\textbf{Answer:} $\boxed{\|T\|_{B(X,X)} = \frac{1}{3}}$
-
+\textit{Kết luận:} Chuẩn của toán tử là $\|T\|_{B(X, X)} = \dfrac{1}{3}$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 3a: Continuity of Functional}
+% ================================================================
+% CÂU 3A: TÍNH LIÊN TỤC CỦA PHIẾM HÀM TUYẾN TÍNH
+% ================================================================
+\subsection*{Câu 3a: Tính liên tục của phiếm hàm tuyến tính}
+
+\begin{questionbox}
+Xét không gian $\mathbb{R}^4$ với chuẩn Euclide $\|(x_1, x_2, x_3, x_4)\| = \sqrt{x_1^2 + x_2^2 + x_3^2 + x_4^2}$. Xét không gian con $M = \{(x_1, x_2, x_3, x_4) \in \mathbb{R}^4 : x_1 = x_2, x_2 = 2x_3, x_3 = -x_4\}$ và ánh xạ $f : M \to \mathbb{R}$ cho bởi $f(x_1, x_2, x_3, x_4) = x_1 + x_2 - x_3 + 2x_4$ với mọi $x \in M$. Chứng minh $f$ là phiếm hàm tuyến tính liên tục trên $M$.
+\end{questionbox}
 
 \begin{solution}
-Given: $M = \{(x_1, x_2, x_3, x_4) : x_1 = x_2, x_2 = 2x_3, x_3 = -x_4\}$
+\textit{Mô tả các phần tử của không gian con $M$}
+Không gian con $M = \{(x_1, x_2, x_3, x_4) \in \mathbb{R}^4 : x_1 = x_2, x_2 = 2x_3, x_3 = -x_4\}$.
+Đặt $x_3 = t$ ($t \in \mathbb{R}$), ta suy ra $x_1 = x_2 = 2t$ và $x_4 = -t$.
+Vậy mọi phần tử $x \in M$ đều có thể biểu diễn dưới dạng tham số:
+\[
+    x = (2t, 2t, t, -t) \quad \text{với } t \in \mathbb{R}
+\]
 
-Parametrization: $x_1 = t, x_2 = t, x_3 = t/2, x_4 = -t/2$ for $t \in \mathbb{R}$
+\textit{Tính giá trị của phiếm hàm $f$ trên $M$}
+Phiếm hàm $f: M \to \mathbb{R}$ được cho bởi $f(x) = x_1 + x_2 - x_3 + 2x_4$.
+Thay tọa độ của $x \in M$ vào, ta được:
+\[
+    f(x) = 2t + 2t - t + 2(-t) = t
+\]
 
-So $M = \{(t, t, t/2, -t/2) : t \in \mathbb{R}\}$
+\textit{Kiểm tra tính tuyến tính}
+Lấy hai phần tử $x = (2t, 2t, t, -t)$ và $y = (2s, 2s, s, -s)$ thuộc $M$, và $\alpha, \beta \in \mathbb{R}$.
+Phần tử $\alpha x + \beta y$ có dạng tham số là $\alpha t + \beta s$, nên:
+\begin{align*}
+    f(\alpha x + \beta y) &= (\alpha t + \beta s) \\
+    &= \alpha(t) + \beta(s) \\
+    &= \alpha f(x) + \beta f(y)
+\end{align*}
+Vậy $f$ là phiếm hàm tuyến tính. $\checkmark$
 
-Functional: $f(x) = x_1 + x_2 - x_3 + 2x_4 = t + t - \frac{t}{2} + 2(-\frac{t}{2}) = 2t - \frac{t}{2} - t = \frac{t}{2}$
+\textit{Kiểm tra tính liên tục (tính bị chặn)}
+Với $x = (2t, 2t, t, -t) \in M$, chuẩn Euclide của $x$ là:
+\begin{align*}
+    \|x\| &= \sqrt{(2t)^2 + (2t)^2 + t^2 + (-t)^2} \\
+    &= \sqrt{4t^2 + 4t^2 + t^2 + t^2} \\
+    &= \sqrt{10t^2} = |t|\sqrt{10}
+\end{align*}
+Từ đó suy ra $|t| = \dfrac{1}{\sqrt{10}}\|x\|$.
+Giá trị tuyệt đối của phiếm hàm $f(x)$ là:
+\[
+    |f(x)| = |t| = \dfrac{1}{\sqrt{10}} \|x\|
+\]
+Do đó $|f(x)| \leq \dfrac{1}{\sqrt{10}} \|x\|$ với mọi $x \in M$. 
+Vì $f$ bị chặn nên nó liên tục trên $M$. Hơn nữa, vì có dấu bằng nên chuẩn của phiếm hàm là $\|f\|_{B(M, \mathbb{R})} = \dfrac{1}{\sqrt{10}}$. $\checkmark$
 
-\textbf{Linearity:} For $x, y \in M$ with parameters $t_x, t_y$ and $\alpha, \beta \in \mathbb{R}$:
-$$f(\alpha x + \beta y) = \frac{\alpha t_x + \beta t_y}{2} = \alpha f(x) + \beta f(y)$$ ✓
-
-\textbf{Continuity:} 
-$$|f(x)| = \left|\frac{t}{2}\right| = \frac{|t|}{2}$$
-
-The norm on $M$:
-$$\|x\|^2 = t^2 + t^2 + (t/2)^2 + (t/2)^2 = 2t^2 + \frac{t^2}{2} = \frac{5t^2}{2}$$
-
-$$\|x\| = |t|\sqrt{\frac{5}{2}}$$
-
-Thus: $|f(x)| = \frac{|t|}{2} = \frac{1}{2\sqrt{5/2}} \|x\| = \frac{1}{\sqrt{10}} \|x\|$
-
-So $|f(x)| \leq \frac{1}{\sqrt{10}} \|x\|$, proving continuity. ✓
-
+\textit{Kết luận:} $f$ là một phiếm hàm tuyến tính liên tục trên $M$ với chuẩn bằng $\dfrac{1}{\sqrt{10}}$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 3b: Hahn-Banach Extension}
+% ================================================================
+% CÂU 3B: THÁC TRIỂN HAHN-BANACH
+% ================================================================
+\subsection*{Câu 3b: Thác triển Hahn-Banach}
+
+\begin{questionbox}
+Chứng minh rằng tồn tại phiếm hàm tuyến tính liên tục $F : \mathbb{R}^4 \to \mathbb{R}$ sao cho $F|_M = f$ và $\|F\|_{B(\mathbb{R}^4, \mathbb{R})} = \|f\|_{B(M, \mathbb{R})}$. Tìm công thức cụ thể của toán tử $F$.
+\end{questionbox}
 
 \begin{solution}
-By Hahn-Banach extension theorem, there exists $F: \mathbb{R}^4 \to \mathbb{R}$ such that:
-- $F|_M = f$
-- $\|F\|_{B(\mathbb{R}^4)} = \|f\|_{B(M)}$
+\textit{Áp dụng định lý Hahn-Banach}
+Theo định lý Hahn-Banach, mọi phiếm hàm tuyến tính liên tục $f$ xác định trên không gian con $M$ đều có thể được thác triển thành một phiếm hàm tuyến tính liên tục $F$ trên toàn bộ không gian $\mathbb{R}^4$ sao cho:
+\begin{itemize}
+    \item $F|_M = f$ (F bằng f trên M).
+    \item $\|F\|_{B(\mathbb{R}^4, \mathbb{R})} = \|f\|_{B(M, \mathbb{R})} = \dfrac{1}{\sqrt{10}}$.
+\end{itemize}
 
-From Problem 3a: $\|f\|_{B(M)} = \frac{1}{\sqrt{10}}$
+\textit{Thiết lập dạng tổng quát của thác triển $F$}
+Mọi phiếm hàm tuyến tính trên không gian Hilbert $\mathbb{R}^4$ đều có dạng:
+\[
+    F(x) = ax_1 + bx_2 + cx_3 + dx_4 = \langle v, x \rangle
+\]
+với $v = (a, b, c, d) \in \mathbb{R}^4$.
+Chuẩn của phiếm hàm $F$ chính là chuẩn của véctơ $v$:
+\[
+    \|F\| = \|v\| = \sqrt{a^2 + b^2 + c^2 + d^2}
+\]
 
-\textbf{Finding $F$:} Since $F$ is linear functional on $\mathbb{R}^4$:
-$$F(x_1, x_2, x_3, x_4) = ax_1 + bx_2 + cx_3 + dx_4$$
+\textit{Sử dụng các điều kiện ràng buộc}
+Từ các tính chất của thác triển, ta có hệ điều kiện:
+\begin{itemize}
+    \item Điều kiện 1: $F|_M = f$. Với mọi $x = (2t, 2t, t, -t) \in M$:
+    \[
+        F(x) = a(2t) + b(2t) + c(t) + d(-t) = t \quad \forall t
+    \]
+    Suy ra: $2a + 2b + c - d = 1$.
+    
+    \item Điều kiện 2: $\|F\| = \dfrac{1}{\sqrt{10}}$. Suy ra:
+    \[
+        a^2 + b^2 + c^2 + d^2 = \dfrac{1}{10}
+    \]
+\end{itemize}
 
-On $M$: $(t, t, t/2, -t/2)$
-$$f(t, t, t/2, -t/2) = at + bt + \frac{ct}{2} - \frac{dt}{2} = \frac{t}{2}$$
+\textit{Giải hệ phương trình tìm hệ số}
+Sử dụng bất đẳng thức Cauchy-Schwarz cho điều kiện (1):
+\begin{align*}
+    1^2 = (2a + 2b + c - d)^2 &\leq \left[ 2^2 + 2^2 + 1^2 + (-1)^2 \right](a^2 + b^2 + c^2 + d^2) \\
+    1 &\leq 10(a^2 + b^2 + c^2 + d^2)
+\end{align*}
+Từ điều kiện (2), ta thấy đẳng thức thực sự xảy ra: $1 = 10 \cdot \dfrac{1}{10}$.
+Dấu bằng trong bất đẳng thức Cauchy-Schwarz xảy ra khi và chỉ khi hai véctơ $(a,b,c,d)$ và $(2,2,1,-1)$ cùng hướng. Tức là tồn tại hằng số $k > 0$ sao cho:
+\[
+    a = 2k, \quad b = 2k, \quad c = k, \quad d = -k
+\]
+Thay vào phương trình $2a + 2b + c - d = 1$:
+\begin{align*}
+    2(2k) + 2(2k) + k - (-k) &= 1 \\
+    10k &= 1 \Rightarrow k = \dfrac{1}{10}
+\end{align*}
+Vậy các hệ số là: $a = \dfrac{1}{5}, b = \dfrac{1}{5}, c = \dfrac{1}{10}, d = -\dfrac{1}{10}$.
 
-So: $a + b + \frac{c}{2} - \frac{d}{2} = \frac{1}{2}$
-
-\textbf{Extremal functional (norm preservation):}
-
-We want to minimize $\|F\| = \sqrt{a^2 + b^2 + c^2 + d^2}$ subject to constraint.
-
-By Lagrange multipliers and orthogonality to $M$, the optimal extension is:
-
-$F(x_1, x_2, x_3, x_4) = \frac{2}{5}(x_1 + x_2 - x_3 + 2x_4)$ 
-
-Verification: On $M$: $F(t, t, t/2, -t/2) = \frac{2}{5}(t + t - t/2 - t) = \frac{2}{5} \cdot \frac{t}{2} = \frac{t}{5}$
-
-Hmm, this doesn't match. Let me recalculate more carefully using the orthogonal complement.
-
-The normal vector to $M$ is proportional to constraints' gradients. The extremal extension is:
-
-$$\boxed{F(x_1, x_2, x_3, x_4) = \frac{1}{\sqrt{10}}(x_1 + x_2 - x_3 + 2x_4)}$$
-
-With $\|F\| = \frac{1}{\sqrt{10}}$
-
+\textit{Kết luận:}
+Công thức cụ thể của toán tử thác triển $F$ là:
+\[ 
+    F(x_1, x_2, x_3, x_4) = \dfrac{2}{10}x_1 + \dfrac{2}{10}x_2 + \dfrac{1}{10}x_3 - \dfrac{1}{10}x_4 
+\]
+Hay viết gọn lại:
+\[ 
+    F(x) = \dfrac{1}{10}(2x_1 + 2x_2 + x_3 - x_4) \quad \blacksquare 
+\]
 \end{solution}
 
-\subsection{Problem 4a: Orthogonal Subspaces}
+% ================================================================
+% CÂU 4A: KHÔNG GIAN CON TRỰC GIAO
+% ================================================================
+\subsection*{Câu 4a: Không gian con trực giao}
+
+\begin{questionbox}
+Xét không gian Hilbert $H = L^2([-1, 1])$ với tích vô hướng $\langle f,g \rangle = \int_{-1}^1 f(x)g(x)dx$. Gọi $M_e$ và $M_o$ lần lượt là tập hợp các hàm số chẵn và hàm số lẻ thuộc $H$. Chứng minh rằng $M_e$ và $M_o$ là hai không gian con trực giao của $H$.
+\end{questionbox}
 
 \begin{solution}
-$M_e = \{f \in L^2([-1,1]) : f(-x) = f(x)\}$ (even functions)
+Tập hợp các hàm số chẵn và lẻ được định nghĩa như sau:
+\begin{itemize}
+    \item $M_e = \{f \in L^2([-1,1]) : f(-x) = f(x)\}$
+    \item $M_o = \{f \in L^2([-1,1]) : f(-x) = -f(x)\}$
+\end{itemize}
 
-$M_o = \{f \in L^2([-1,1]) : f(-x) = -f(x)\}$ (odd functions)
+\textit{Tính tích vô hướng của hai phần tử thuộc hai không gian}
+Lấy một hàm chẵn tùy ý $g \in M_e$ và một hàm lẻ tùy ý $h \in M_o$. Tích vô hướng của chúng là:
+\[ 
+    \langle g, h \rangle = \int_{-1}^1 g(x)h(x) dx 
+\]
 
-\textbf{Subspace property:}
-- $M_e$ and $M_o$ are closed under addition and scalar multiplication ✓
-- Both contain the zero function ✓
+\textit{Xét tính chẵn lẻ của hàm tích}
+Xét hàm phụ $k(x) = g(x)h(x)$. Tính $k(-x)$:
+\begin{align*}
+    k(-x) &= g(-x)h(-x) \\
+    &= g(x) \cdot (-h(x)) \quad \text{(do $g$ chẵn và $h$ lẻ)} \\
+    &= -g(x)h(x) \\
+    &= -k(x)
+\end{align*}
+Điều này chứng tỏ $k(x)$ là một hàm số lẻ. $\checkmark$
 
-\textbf{Orthogonality:} For $g \in M_e$ and $h \in M_o$:
-$$\langle g, h \rangle = \int_{-1}^1 g(x)h(x) dx$$
+\textit{Tính tích phân của hàm lẻ}
+Tích phân của bất kỳ hàm số lẻ nào trên một miền đối xứng (như đoạn $[-1, 1]$) đều có giá trị bằng 0. Do đó:
+\[
+    \langle g, h \rangle = \int_{-1}^1 k(x) dx = 0
+\]
+Vì $\langle g, h \rangle = 0$ với mọi $g \in M_e$ và mọi $h \in M_o$, nên hai không gian này trực giao với nhau. $\checkmark$
 
-Substitute $x \to -x$:
-$$= \int_{-1}^1 g(-x)h(-x) \frac{d(-x)}{dx} dx = \int_{-1}^1 g(-x)h(-x) (-1) dx$$
-
-$$= -\int_{-1}^1 g(-x)h(-x) dx = -\int_{-1}^1 g(x)(-h(x)) dx$$
-
-$$= \int_{-1}^1 g(x)h(x) dx = \langle g, h \rangle$$
-
-So $2\langle g, h \rangle = \langle g, h \rangle$, which implies $\langle g, h \rangle = 0$ ✓
-
+\textit{Kết luận:} $M_e \perp M_o$, tức là tập hợp các hàm chẵn trực giao với tập hợp các hàm lẻ trong không gian $L^2([-1, 1])$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 4b: Projection and Distance}
+% ================================================================
+% CÂU 4B: HÌNH CHIẾU TRỰC GIAO
+% ================================================================
+\subsection*{Câu 4b: Hình chiếu trực giao}
+
+\begin{questionbox}
+Xét hàm số $f(x) = x^3 + 3x^2 - 2x + 1$. Hãy tìm hình chiếu trực giao của $f$ lên không gian con $M_o$ và tính khoảng cách từ $f$ đến $M_o$.
+\end{questionbox}
 
 \begin{solution}
-$f(x) = x^3 + 3x^2 - 2x + 1$
+\textit{Phân tích trực giao hàm số}
+Mọi hàm $f \in L^2([-1, 1])$ đều có thể phân tích duy nhất thành tổng của một hàm chẵn và một hàm lẻ:
+\[
+    f(x) = f_e(x) + f_o(x)
+\]
+với các thành phần được tính bởi công thức:
+\[
+    f_e(x) = \dfrac{f(x) + f(-x)}{2} \quad \text{và} \quad f_o(x) = \dfrac{f(x) - f(-x)}{2}
+\]
+Vì $M_e \perp M_o$ (đã chứng minh ở câu a) và $L^2([-1,1]) = M_e \oplus M_o$, hình chiếu trực giao của $f$ lên $M_o$ chính là thành phần lẻ $f_o(x)$.
 
-Decompose: $f(x) = f_e(x) + f_o(x)$ where:
-- $f_e(x) = \frac{f(x) + f(-x)}{2}$
-- $f_o(x) = \frac{f(x) - f(-x)}{2}$
+\textit{Tìm hình chiếu trực giao $P_{M_o}f$}
+Với $f(x) = x^3 + 3x^2 - 2x + 1$, ta tính $f(-x)$:
+\[ 
+    f(-x) = (-x)^3 + 3(-x)^2 - 2(-x) + 1 = -x^3 + 3x^2 + 2x + 1 
+\]
+Thành phần lẻ $f_o(x)$ là hình chiếu trực giao của $f$ lên $M_o$:
+\begin{align*}
+    f_o(x) &= \dfrac{f(x) - f(-x)}{2} \\
+    &= \dfrac{(x^3 + 3x^2 - 2x + 1) - (-x^3 + 3x^2 + 2x + 1)}{2} \\
+    &= \dfrac{2x^3 - 4x}{2} = x^3 - 2x
+\end{align*}
+Vậy hình chiếu trực giao là $P_{M_o}f = x^3 - 2x$. $\checkmark$
 
-Calculate:
-$$f(-x) = -x^3 + 3x^2 + 2x + 1$$
+\textit{Tính khoảng cách từ $f$ đến $M_o$}
+Khoảng cách từ $f$ đến không gian con $M_o$ được tính bằng chuẩn của phần trực giao:
+\[ 
+    d(f, M_o) = \|f - P_{M_o}f\| = \|f_e\| 
+\]
+Ta tính thành phần chẵn $f_e(x)$:
+\begin{align*}
+    f_e(x) &= \dfrac{f(x) + f(-x)}{2} \\
+    &= \dfrac{(x^3 + 3x^2 - 2x + 1) + (-x^3 + 3x^2 + 2x + 1)}{2} \\
+    &= \dfrac{6x^2 + 2}{2} = 3x^2 + 1
+\end{align*}
+Bình phương chuẩn của $f_e$:
+\begin{align*}
+    \|f_e\|^2 &= \int_{-1}^1 (3x^2 + 1)^2 dx \\
+    &= \int_{-1}^1 (9x^4 + 6x^2 + 1) dx \\
+    &= \left[ \dfrac{9x^5}{5} + 2x^3 + x \right]_{-1}^1 \\
+    &= \left( \dfrac{9}{5} + 2 + 1 \right) - \left( -\dfrac{9}{5} - 2 - 1 \right) \\
+    &= 2 \left( \dfrac{9}{5} + 3 \right) = 2 \left( \dfrac{24}{5} \right) = \dfrac{48}{5}
+\end{align*}
+Suy ra khoảng cách là:
+\[
+    d(f, M_o) = \|f_e\| = \sqrt{\dfrac{48}{5}} = \dfrac{4\sqrt{3}}{\sqrt{5}} = \dfrac{4\sqrt{15}}{5}
+\]
 
-$$f_e(x) = \frac{(x^3 + 3x^2 - 2x + 1) + (-x^3 + 3x^2 + 2x + 1)}{2} = \frac{6x^2 + 2}{2} = 3x^2 + 1$$
-
-$$f_o(x) = \frac{(x^3 + 3x^2 - 2x + 1) - (-x^3 + 3x^2 + 2x + 1)}{2} = \frac{2x^3 - 4x}{2} = x^3 - 2x$$
-
-The orthogonal projection of $f$ onto $M_o$ is $f_o(x) = x^3 - 2x$.
-
-\textbf{Distance:}
-$$d(f, M_o) = \|f - f_o\| = \|f_e\|$$
-
-$$\|f_e\|^2 = \int_{-1}^1 (3x^2 + 1)^2 dx = \int_{-1}^1 (9x^4 + 6x^2 + 1) dx$$
-
-$$= \left[9 \cdot \frac{x^5}{5} + 6 \cdot \frac{x^3}{3} + x\right]_{-1}^1$$
-
-$$= 2\left(\frac{9}{5} + 2 + 1\right) = 2 \cdot \frac{9 + 10 + 5}{5} = 2 \cdot \frac{24}{5} = \frac{48}{5}$$
-
-$$d(f, M_o) = \|f_e\| = \sqrt{\frac{48}{5}} = \frac{4\sqrt{3}}{\sqrt{5}} = \frac{4\sqrt{15}}{5}$$
-
-\textbf{Answer:} 
-- Orthogonal projection: $\boxed{x^3 - 2x}$
-- Distance: $\boxed{\frac{4\sqrt{15}}{5}}$
-
+\textit{Kết luận:}
+\begin{itemize}
+    \item Hình chiếu trực giao của $f$ lên $M_o$ là: $P_{M_o}f(x) = x^3 - 2x$.
+    \item Khoảng cách từ $f$ đến $M_o$ là: $d(f, M_o) = \dfrac{4\sqrt{15}}{5}$. $\blacksquare$
+\end{itemize}
 \end{solution}
 
 \newpage

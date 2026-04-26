@@ -1,226 +1,391 @@
-\section*{Solutions: Exam 1 - Multivariable Calculus}
+﻿% ================================================================
+% LỜI GIẢI ĐỀ THI 1: GIẢI TÍCH HÀM NHIỀU BIẾN
+% Lời giải chi tiết với các bước giải rõ ràng
+% ================================================================
 
-\subsection{Problem 1a: Partial Derivatives and Euler's Theorem}
+\section*{Lời giải Đề 1: Giải tích hàm nhiều biến}
+\addcontentsline{toc}{section}{Lời giải Đề 1: Giải tích hàm nhiều biến}
+
+% ================================================================
+% CÂU 1A: ĐẠO HÀM RIÊNG VÀ ĐỊNH LÝ EULER
+% ================================================================
+\subsection*{Câu 1a: Đạo hàm riêng và Định lý Euler}
+
+\begin{questionbox}
+Cho hàm số $u(x, y) = (x + y)\sqrt{x^2 + y^2}$. Chứng minh rằng: 
+\[
+    x\dfrac{\partial u}{\partial x} + y\dfrac{\partial u}{\partial y} = 2u 
+    \quad \text{với mọi } (x, y) \neq (0,0).
+\]
+\end{questionbox}
 
 \begin{solution}
-Given: $u(x, y) = (x + y)\sqrt{x^2 + y^2}$
+Cho hàm số: $u(x, y) = (x + y)\sqrt{x^2 + y^2}$
 
-We need to prove: $x\frac{\partial u}{\partial x} + y\frac{\partial u}{\partial y} = 2u$
+Cần chứng minh hệ thức: $x\dfrac{\partial u}{\partial x} + y\dfrac{\partial u}{\partial y} = 2u$
 
-\textbf{Step 1: Calculate} $\frac{\partial u}{\partial x}$
+\textit{} Tính đạo hàm riêng theo $x$:
+\begin{align*}
+    \dfrac{\partial u}{\partial x} &= \dfrac{\partial}{\partial x}(x+y) \cdot \sqrt{x^2 + y^2} + (x + y) \cdot \dfrac{\partial}{\partial x}(\sqrt{x^2 + y^2}) \\
+    &= 1 \cdot \sqrt{x^2 + y^2} + (x + y) \cdot \dfrac{x}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{(x^2 + y^2) + x(x + y)}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{2x^2 + y^2 + xy}{\sqrt{x^2 + y^2}}
+\end{align*}
 
-$$\frac{\partial u}{\partial x} = \sqrt{x^2 + y^2} + (x + y) \cdot \frac{x}{\sqrt{x^2 + y^2}}$$
+\textit{} Tính đạo hàm riêng theo $y$:
+\begin{align*}
+    \dfrac{\partial u}{\partial y} &= \dfrac{\partial}{\partial y}(x+y) \cdot \sqrt{x^2 + y^2} + (x + y) \cdot \dfrac{\partial}{\partial y}(\sqrt{x^2 + y^2}) \\
+    &= 1 \cdot \sqrt{x^2 + y^2} + (x + y) \cdot \dfrac{y}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{(x^2 + y^2) + y(x + y)}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{x^2 + 2y^2 + xy}{\sqrt{x^2 + y^2}}
+\end{align*}
 
-$$= \frac{x^2 + y^2 + x(x + y)}{\sqrt{x^2 + y^2}} = \frac{2x^2 + y^2 + xy}{\sqrt{x^2 + y^2}}$$
+\textit{} Kiểm tra hệ thức:
+\begin{align*}
+    x\dfrac{\partial u}{\partial x} + y\dfrac{\partial u}{\partial y} &= \dfrac{x(2x^2 + y^2 + xy) + y(x^2 + 2y^2 + xy)}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{2x^3 + xy^2 + x^2y + x^2y + 2y^3 + xy^2}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{2x^3 + 2xy^2 + 2x^2y + 2y^3}{\sqrt{x^2 + y^2}} \\
+    &= \dfrac{2(x+y)(x^2+y^2)}{\sqrt{x^2 + y^2}} \\
+    &= 2(x + y)\sqrt{x^2 + y^2} = 2u
+\end{align*}
 
-\textbf{Step 2: Calculate} $\frac{\partial u}{\partial y}$
-
-$$\frac{\partial u}{\partial y} = \sqrt{x^2 + y^2} + (x + y) \cdot \frac{y}{\sqrt{x^2 + y^2}}$$
-
-$$= \frac{x^2 + y^2 + y(x + y)}{\sqrt{x^2 + y^2}} = \frac{x^2 + 2y^2 + xy}{\sqrt{x^2 + y^2}}$$
-
-\textbf{Step 3: Verify the relation}
-
-$$x\frac{\partial u}{\partial x} + y\frac{\partial u}{\partial y} = \frac{x(2x^2 + y^2 + xy) + y(x^2 + 2y^2 + xy)}{\sqrt{x^2 + y^2}}$$
-
-$$= \frac{2x^3 + xy^2 + x^2y + x^2y + 2y^3 + xy^2}{\sqrt{x^2 + y^2}}$$
-
-$$= \frac{2x^3 + 2xy^2 + 2x^2y + 2y^3}{\sqrt{x^2 + y^2}} = \frac{2(x^3 + xy^2 + x^2y + y^3)}{\sqrt{x^2 + y^2}}$$
-
-$$= 2(x + y) \cdot \frac{x^2 + y^2}{\sqrt{x^2 + y^2}} = 2(x + y)\sqrt{x^2 + y^2} = 2u$$
-
-\textbf{Conclusion:} The relation is verified. $\blacksquare$
+\textit{Kết luận:} Hệ thức đã được chứng minh. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 1b: Finding Extrema}
+% ================================================================
+% CÂU 1B: TÌM CỰC TRỊ TỰ DO
+% ================================================================
+\subsection*{Câu 1b: Tìm cực trị tự do}
+
+\begin{questionbox}
+Tìm cực trị của hàm số: $z = (x + y)^2 - \dfrac{x^4}{2} - \dfrac{y^4}{2}$.
+\end{questionbox}
 
 \begin{solution}
-Given: $z = (x + y)^2 - \frac{x^4}{2} - \frac{y^4}{2}$
+Cho hàm số: $z = (x + y)^2 - \dfrac{x^4}{2} - \dfrac{y^4}{2}$
 
-\textbf{Step 1: Find critical points}
+\textit{} Tìm các điểm dừng bằng cách giải hệ phương trình đạo hàm riêng bậc nhất:
+\begin{align*}
+    z'_x &= 2(x + y) - 2x^3 = 0 \\
+    z'_y &= 2(x + y) - 2y^3 = 0
+\end{align*}
 
-$$\frac{\partial z}{\partial x} = 2(x + y) - 2x^3 = 0$$
-$$\frac{\partial z}{\partial y} = 2(x + y) - 2y^3 = 0$$
+Từ hệ trên suy ra: $2x^3 = 2y^3 \Rightarrow x^3 = y^3 \Rightarrow x = y$.
 
-From both equations: $2(x + y) = 2x^3 = 2y^3$
+Thay vào phương trình đầu: $2(2x) - 2x^3 = 0 \Rightarrow 4x - 2x^3 = 0 \Rightarrow 2x(2 - x^2) = 0$
 
-This implies $x^3 = y^3$, so $x = y$.
+Suy ra: $x = 0$ hoặc $x^2 = 2 \Rightarrow x = \pm\sqrt{2}$.
 
-Substituting back: $2(2x) = 2x^3 \Rightarrow 4x = 2x^3 \Rightarrow x^3 = 2x$
+\textit{Các điểm dừng:} $M_1(0, 0)$, $M_2(\sqrt{2}, \sqrt{2})$, $M_3(-\sqrt{2}, -\sqrt{2})$.
 
-Thus: $x^3 - 2x = 0 \Rightarrow x(x^2 - 2) = 0$
+\textit{} Kiểm tra điều kiện đủ bằng ma trận Hessian:
+\begin{align*}
+    A = z''_{xx} &= 2 - 6x^2 \\
+    C = z''_{yy} &= 2 - 6y^2 \\
+    B = z''_{xy} &= 2
+\end{align*}
 
-Critical points: $(0, 0)$, $(\sqrt{2}, \sqrt{2})$, $(-\sqrt{2}, -\sqrt{2})$
+Định thức Hessian: $D = AC - B^2$
 
-\textbf{Step 2: Second partial derivatives}
+\textit{Tại $M_1(0, 0)$:}
+$A = 2, C = 2, B = 2 \Rightarrow D = 2 \cdot 2 - 2^2 = 0$.
 
-$$\frac{\partial^2 z}{\partial x^2} = 2 - 6x^2, \quad \frac{\partial^2 z}{\partial y^2} = 2 - 6y^2, \quad \frac{\partial^2 z}{\partial x \partial y} = 2$$
+Vì $D = 0$, cần kiểm tra thêm:
+- Dọc theo $y = x$: $z(x, x) = 4x^2 - x^4$, có cực tiểu tại $x = 0$.
+- Dọc theo $y = -x$: $z(x, -x) = -x^4$, có cực đại tại $x = 0$.
 
-\textbf{Step 3: Test critical points using Hessian}
+Vậy $M_1(0, 0)$ là \textit{điểm yên ngựa}.
 
-At $(0, 0)$: $D = (2)(2) - (2)^2 = 0$ (inconclusive)
+\textit{Tại $M_2(\sqrt{2}, \sqrt{2})$ và $M_3(-\sqrt{2}, -\sqrt{2})$:}
+$A = 2 - 6(2) = -10, C = -10, B = 2$
+$D = (-10)(-10) - 2^2 = 100 - 4 = 96 > 0$.
 
-At $(\sqrt{2}, \sqrt{2})$: $\frac{\partial^2 z}{\partial x^2} = 2 - 12 = -10$, $D = (-10)(-10) - 4 = 96 > 0$ 
+Vì $A < 0$ và $D > 0$, hàm số đạt \textit{cực đại địa phương} tại hai điểm này.
 
-Since $\frac{\partial^2 z}{\partial x^2} < 0$, this is a \textbf{local maximum}: $z = 8 - 4 = 4$
+Giá trị cực đại: 
+\begin{align*}
+    z(M_2) = z(M_3) &= (2\sqrt{2})^2 - \dfrac{(\sqrt{2})^4}{2} - \dfrac{(\sqrt{2})^4}{2} \\
+    &= 8 - \dfrac{4}{2} - \dfrac{4}{2} = 8 - 2 - 2 = 4
+\end{align*}
 
-At $(-\sqrt{2}, -\sqrt{2})$: By symmetry, also a \textbf{local maximum}: $z = 4$
-
+\textit{Kết luận:} 
+- Điểm yên ngựa: $(0, 0)$ với $z = 0$
+- Cực đại địa phương: $(\pm\sqrt{2}, \pm\sqrt{2})$ với $z = 4$
 \end{solution}
 
-\subsection{Problem 1c: Constrained Optimization (Lagrange Multipliers)}
+% ================================================================
+% CÂU 1C: CỰC TRỊ CÓ ĐIỀU KIỆN
+% ================================================================
+\subsection*{Câu 1c: Cực trị có điều kiện}
+
+\begin{questionbox}
+Tìm cực trị của hàm số $z = 20x^{1/4}y^{3/4}$, thỏa mãn điều kiện $x + 3y = 8$ với $x, y > 0$.
+\end{questionbox}
 
 \begin{solution}
-Given: $z = 20x^{1/4}y^{3/4}$, constraint: $x + 3y = 8$, $x, y > 0$
+Cho hàm số: $z = 20x^{1/4}y^{3/4}$ với điều kiện $x + 3y = 8$ ($x, y > 0$).
 
-\textbf{Method: Lagrange Multipliers}
+\textit{Phương pháp nhân tử Lagrange:}
+Xét hàm Lagrange: $L(x, y, \lambda) = 20x^{1/4}y^{3/4} - \lambda(x + 3y - 8)$
 
-$$\nabla z = \lambda \nabla g, \text{ where } g = x + 3y - 8$$
+\textit{} Tính các đạo hàm riêng:
+\begin{align*}
+    L'_x &= 5x^{-3/4}y^{3/4} - \lambda = 0 \\
+    L'_y &= 15x^{1/4}y^{-1/4} - 3\lambda = 0 \\
+    L'_\lambda &= -(x + 3y - 8) = 0
+\end{align*}
 
-$$\frac{\partial z}{\partial x} = 5x^{-3/4}y^{3/4} = \lambda$$
-$$\frac{\partial z}{\partial y} = 15x^{1/4}y^{-1/4} = 3\lambda$$
+\textit{} Từ hai phương trình đầu:
+\begin{align*}
+    \lambda &= 5x^{-3/4}y^{3/4} = 5\left(\dfrac{y}{x}\right)^{3/4} \\
+    \lambda &= 5x^{1/4}y^{-1/4} = 5\left(\dfrac{x}{y}\right)^{1/4}
+\end{align*}
 
-From the second equation: $\lambda = 5x^{1/4}y^{-1/4}$
+Cân bằng hai biểu thức của $\lambda$:
+\[
+    5\left(\dfrac{y}{x}\right)^{3/4} = 5\left(\dfrac{x}{y}\right)^{1/4}
+\]
 
-Equating: $5x^{-3/4}y^{3/4} = 5x^{1/4}y^{-1/4}$
+\[
+    \left(\dfrac{y}{x}\right)^{3/4} = \left(\dfrac{x}{y}\right)^{1/4} = \left(\dfrac{y}{x}\right)^{-1/4}
+\]
 
-$$x^{-3/4}y^{3/4} = x^{1/4}y^{-1/4} \Rightarrow y = x$$
+\[
+    \left(\dfrac{y}{x}\right)^{3/4 + 1/4} = 1 \Rightarrow \dfrac{y}{x} = 1 \Rightarrow y = x
+\]
 
-Wait, let me recalculate: From $5x^{-3/4}y^{3/4} = 5x^{1/4}y^{-1/4}$:
+\textit{} Thay vào điều kiện ràng buộc:
+$x + 3x = 8 \Rightarrow 4x = 8 \Rightarrow x = 2$
 
-$$\frac{y^{3/4}}{x^{3/4}} = \frac{y^{-1/4}}{x^{-1/4}} \Rightarrow \left(\frac{y}{x}\right)^{3/4} = \left(\frac{x}{y}\right)^{1/4}$$
+Vậy $x = 2, y = 2$.
 
-$$\left(\frac{y}{x}\right)^{3/4} \cdot \left(\frac{y}{x}\right)^{1/4} = 1 \Rightarrow \left(\frac{y}{x}\right) = 1 \Rightarrow y = x$$
+\textit{} Tính giá trị cực trị:
+\[
+    z(2, 2) = 20(2)^{1/4}(2)^{3/4} = 20 \cdot 2^{1/4 + 3/4} = 20 \cdot 2 = 40
+\]
 
-But from constraint $x + 3x = 8 \Rightarrow x = 2, y = 2$
-
-Hmm, let me recalculate using the ratios properly:
-
-From $5x^{-3/4}y^{3/4} = \lambda$ and $15x^{1/4}y^{-1/4} = 3\lambda$:
-
-$$\frac{5x^{-3/4}y^{3/4}}{15x^{1/4}y^{-1/4}} = \frac{1}{3}$$
-
-$$\frac{5y}{15x} = \frac{1}{3} \Rightarrow \frac{y}{3x} = \frac{1}{3} \Rightarrow y = x$$
-
-From constraint: $x + 3x = 8 \Rightarrow x = 2$
-
-But this should give $2 + 6 = 8$, which checks out.
-
-Actually, let me recalculate the ratio: $\frac{1}{3} \cdot \frac{y}{x} = \frac{1}{3}$, so $y = x$.
-
-From $x + 3x = 8$: $4x = 8 \Rightarrow x = 2, y = 2$. But $2 + 3(2) = 8$? No, $2 + 6 = 8$ ✓
-
-Actually, $y = x$ gives $x + 3x = 4x = 8$, so $x = 2, y = 2$, but then $x + 3y = 2 + 6 = 8$ ✓
-
-Let me recalculate: If $y = x$, then $x + 3x = 8$, so $x = 2$ and we need $y = 2/3$.
-
-Wait, I made an error. Let me recalculate the condition from Lagrange:
-
-$5x^{-3/4}y^{3/4} = \lambda$ and $15x^{1/4}y^{-1/4} = 3\lambda$
-
-So: $15x^{1/4}y^{-1/4} = 3 \cdot 5x^{-3/4}y^{3/4}$
-
-$15x^{1/4}y^{-1/4} = 15x^{-3/4}y^{3/4}$
-
-$x^{1/4}y^{-1/4} = x^{-3/4}y^{3/4}$
-
-$x^{1/4 + 3/4} = y^{3/4 + 1/4}$
-
-$x = y$
-
-But $x + 3y = 8$ gives $x + 3x = 8$, so $x = 2, y = 2$.
-
-Check: $2 + 3(2) = 8$ ✓
-
-Maximum value: $z = 20(2)^{1/4}(2)^{3/4} = 20 \cdot 2 = 40$
-
-\textbf{Answer:} Maximum at $(2, 2)$ with $z_{\max} = 40$
-
+\textit{Kết luận:} Giá trị lớn nhất là $40$ tại điểm $(2, 2)$.
 \end{solution}
 
-\subsection{Problem 2a: Double Integral in Changed Variables}
+% ================================================================
+% CÂU 2A: TÍCH PHÂN KÉP BẰNG CÁCH ĐỔI BIẾN
+% ================================================================
+\subsection*{Câu 2a: Tích phân kép bằng cách đổi biến}
+
+\begin{questionbox}
+Tính diện tích hình phẳng $D$ giới hạn bởi các đường:
+\[
+    y = \dfrac{1}{x}, \quad y = \dfrac{5}{x}, \quad x = y^2, \quad x = 5y^2.
+\]
+\end{questionbox}
 
 \begin{solution}
-Region $D$ is bounded by $y = 1/x$, $y = 5/x$, $x = y^2$, $x = 5y^2$
+Miền $D$ được giới hạn bởi: $xy = 1$, $xy = 5$, $\dfrac{x}{y^2} = 1$, $\dfrac{x}{y^2} = 5$.
 
-Use substitution: $u = xy$, $v = x/y^2$
+\textit{} Đặt phép đổi biến:
+\[
+    u = xy, \quad v = \dfrac{x}{y^2}
+\]
 
-For the boundaries:
-- $y = 1/x$ gives $u = 1$
-- $y = 5/x$ gives $u = 5$
-- $x = y^2$ gives $v = 1$
-- $x = 5y^2$ gives $v = 5$
+Khi đó miền $D$ trở thành: $D' = [1, 5] \times [1, 5]$ trong hệ tọa độ $(u, v)$.
 
-The Jacobian: Using $x = \sqrt{uv}$, $y = \sqrt{u/v}$:
+\textit{} Tìm biểu thức của $x, y$ theo $u, v$:
+Từ $u = xy$ và $v = \dfrac{x}{y^2}$, ta có:
+\[
+    \dfrac{u}{v} = \dfrac{xy}{\dfrac{x}{y^2}} = xy \cdot \dfrac{y^2}{x} = y^3
+\]
 
-$$\left|\frac{\partial(x,y)}{\partial(u,v)}\right| = \frac{1}{2v}$$
+Suy ra: $y = \left(\dfrac{u}{v}\right)^{1/3} = u^{1/3}v^{-1/3}$
 
-$$\text{Area} = \int_1^5 \int_1^5 \frac{1}{2v} \, du \, dv = \int_1^5 \frac{4}{2v} \, dv = 2\ln(5)$$
+Và: $x = \dfrac{u}{y} = \dfrac{u}{u^{1/3}v^{-1/3}} = u^{2/3}v^{1/3}$
 
-\textbf{Answer:} $\text{Area} = 2\ln(5)$
+\textit{} Tính định thức Jacobian:
+\[
+    J = \dfrac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix}
+        \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
+        \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
+    \end{vmatrix}
+\]
 
+\begin{align*}
+    \dfrac{\partial x}{\partial u} &= \dfrac{2}{3}u^{-1/3}v^{1/3}, \quad 
+    \dfrac{\partial x}{\partial v} = \dfrac{1}{3}u^{2/3}v^{-2/3} \\
+    \dfrac{\partial y}{\partial u} &= \dfrac{1}{3}u^{-2/3}v^{-1/3}, \quad 
+    \dfrac{\partial y}{\partial v} = -\dfrac{1}{3}u^{1/3}v^{-4/3}
+\end{align*}
+
+\begin{align*}
+    |J| &= \left| \dfrac{2}{3}u^{-1/3}v^{1/3} \cdot \left(-\dfrac{1}{3}u^{1/3}v^{-4/3}\right) - \dfrac{1}{3}u^{2/3}v^{-2/3} \cdot \dfrac{1}{3}u^{-2/3}v^{-1/3} \right| \\
+    &= \left| -\dfrac{2}{9}v^{-1} - \dfrac{1}{9}v^{-1} \right| = \left| -\dfrac{3}{9v} \right| = \dfrac{1}{3v}
+\end{align*}
+
+\textit{} Tính diện tích:
+\begin{align*}
+    S &= \iint_D dx\,dy = \iint_{D'} |J| \, du\,dv \\
+    &= \int_1^5 \int_1^5 \dfrac{1}{3v} \, du\,dv \\
+    &= \dfrac{1}{3} \int_1^5 du \int_1^5 \dfrac{1}{v} \, dv \\
+    &= \dfrac{1}{3} \cdot 4 \cdot \ln 5 = \dfrac{4\ln 5}{3}
+\end{align*}
+
+\textit{Kết luận:} Diện tích hình phẳng $D$ là $\dfrac{4\ln 5}{3}$.
 \end{solution}
 
-\subsection{Problem 2b: Population Calculation}
+% ================================================================
+% CÂU 2B: BÀI TOÁN MẬT ĐỘ DÂN SỐ
+% ================================================================
+\subsection*{Câu 2b: Bài toán mật độ dân số}
+
+\begin{questionbox}
+Mật độ dân số của một thành phố được cho bởi hàm $f(x, y) = 20000e^{-(x^2+y^2)/5}$, tính theo mặt phẳng tọa độ $Oxy$ với gốc là trung tâm thành phố (đơn vị: người/km²). Tính số dân của thành phố trong khu vực có bán kính 5 km tính từ trung tâm thành phố. Mật độ dân số trung bình của khu vực trên là bao nhiêu?
+\end{questionbox}
 
 \begin{solution}
-Population density: $f(x, y) = 20000e^{-(x^2+y^2)/5}$
+Mật độ dân số: $f(x, y) = 20000e^{-(x^2+y^2)/5}$ (người/km²)
 
-Total population in radius 5 km:
-$$P = \int \int_D 20000e^{-(x^2+y^2)/5} dA$$
+\textit{} Tính tổng dân số trong hình tròn $x^2 + y^2 \leq 25$:
+\[
+    P = \iint_{x^2+y^2 \leq 25} 20000e^{-(x^2+y^2)/5} \, dA
+\]
 
-Converting to polar coordinates: $x = r\cos\theta$, $y = r\sin\theta$, $0 \le r \le 5$, $0 \le \theta \le 2\pi$
+\textit{} Sử dụng tọa độ cực:
+$x = r\cos\theta$, $y = r\sin\theta$, $dA = r \, dr \, d\theta$
 
-$$P = \int_0^{2\pi} \int_0^5 20000e^{-r^2/5} r \, dr \, d\theta$$
+Với $0 \leq r \leq 5$ và $0 \leq \theta \leq 2\pi$:
+\[
+    P = \int_0^{2\pi} d\theta \int_0^5 20000e^{-r^2/5} \cdot r \, dr
+\]
 
-Let $u = -r^2/5$, $du = -2r/5 dr$:
+\textit{} Tính tích phân theo $r$:
+Đặt $t = \dfrac{r^2}{5} \Rightarrow dt = \dfrac{2r}{5} dr \Rightarrow r \, dr = \dfrac{5}{2} dt$
 
-$$\int_0^5 e^{-r^2/5} r \, dr = -\frac{5}{2}[e^{-r^2/5}]_0^5 = -\frac{5}{2}(e^{-5} - 1) = \frac{5}{2}(1 - e^{-5})$$
+Khi $r = 0 \Rightarrow t = 0$; khi $r = 5 \Rightarrow t = 5$:
+\begin{align*}
+    \int_0^5 20000e^{-r^2/5} \cdot r \, dr &= 20000 \cdot \dfrac{5}{2} \int_0^5 e^{-t} \, dt \\
+    &= 50000 \left[ -e^{-t} \right]_0^5 \\
+    &= 50000(-e^{-5} + 1) \\
+    &= 50000(1 - e^{-5})
+\end{align*}
 
-$$P = 20000 \cdot 2\pi \cdot \frac{5}{2}(1 - e^{-5}) = 100000\pi(1 - e^{-5}) \approx 310,844 \text{ people}$$
+\textit{} Tính tổng dân số:
+\begin{align*}
+    P &= 2\pi \cdot 50000(1 - e^{-5}) \\
+    &= 100000\pi(1 - e^{-5})
+\end{align*}
 
-Average density: $\bar{f} = \frac{P}{\pi \cdot 5^2} = \frac{100000\pi(1 - e^{-5})}{25\pi} = 4000(1 - e^{-5}) \approx 3,942 \text{ people/km}^2$
+Với $e^{-5} \approx 0.00674$:
+\[
+    P \approx 100000\pi(1 - 0.00674) \approx 100000\pi \cdot 0.99326 \approx 311,895 \text{ người}
+\]
 
+\textit{} Tính mật độ dân số trung bình:
+Diện tích khu vực: $S = \pi \cdot 5^2 = 25\pi$ km²
+
+Mật độ trung bình:
+\begin{align*}
+    \bar{f} &= \dfrac{P}{S} = \dfrac{100000\pi(1 - e^{-5})}{25\pi} \\
+    &= 4000(1 - e^{-5}) \\
+    &\approx 4000 \times 0.99326 \approx 3,973 \text{ người/km}^2
+\end{align*}
+
+\textit{Kết luận:}
+- Tổng dân số: $100000\pi(1 - e^{-5}) \approx 311,895$ người
+- Mật độ trung bình: $4000(1 - e^{-5}) \approx 3,973$ người/km²
 \end{solution}
 
-\subsection{Problem 3: Mass Calculation}
+% ================================================================
+% CÂU 3: TÍNH KHỐI LƯỢNG VẬT THỂ
+% ================================================================
+\subsection*{Câu 3: Tính khối lượng vật thể}
+
+\begin{questionbox}
+Trong không gian $\mathbb{R}^3$, cho vật thể:
+\[
+    \Omega = \left\{ (x, y, z) \in \mathbb{R}^3 : \sqrt{x^2 + y^2} \leq z \leq 4 - \sqrt{x^2 + y^2} \right\}
+\]
+có khối lượng riêng phân bố theo hàm $\rho(x, y, z) = x^2 + y^2$. Tính khối lượng của $\Omega$.
+\end{questionbox}
 
 \begin{solution}
-Object: $\Omega = \{(x,y,z) : \sqrt{x^2+y^2} \le z \le 4 - \sqrt{x^2+y^2}\}$
+Vật thể $\Omega$ giới hạn bởi hai mặt nón $z = r$ và $z = 4 - r$ với $r = \sqrt{x^2+y^2}$.
 
-Density: $\rho(x,y,z) = x^2 + y^2$
+\textit{} Tìm miền xác định:
+Giao tuyến của hai mặt nón: $r = 4 - r \Rightarrow 2r = 4 \Rightarrow r = 2$.
 
-In cylindrical coordinates $(r, \theta, z)$: $\rho = r^2$
+Vậy $0 \leq r \leq 2$ và $r \leq z \leq 4-r$.
 
-For each $r$, $z$ ranges from $r$ to $4-r$ (valid for $0 \le r \le 2$)
+\textit{} Sử dụng tọa độ trụ:
+$x = r\cos\theta$, $y = r\sin\theta$, $z = z$
 
-$$m = \int_0^{2\pi} \int_0^2 \int_r^{4-r} r^2 \cdot r \, dz \, dr \, d\theta$$
+Với $0 \leq \theta \leq 2\pi$, $0 \leq r \leq 2$, $r \leq z \leq 4-r$.
 
-$$= \int_0^{2\pi} \int_0^2 r^3(4 - 2r) \, dr \, d\theta$$
+Khối lượng riêng: $\rho = x^2 + y^2 = r^2$
 
-$$= 2\pi \int_0^2 (4r^3 - 2r^4) \, dr = 2\pi \left[r^4 - \frac{2r^5}{5}\right]_0^2$$
+Phần tử thể tích: $dV = r \, dr \, d\theta \, dz$
 
-$$= 2\pi\left(16 - \frac{64}{5}\right) = 2\pi \cdot \frac{16}{5} = \frac{32\pi}{5}$$
+\textit{} Tính khối lượng:
+\begin{align*}
+    m &= \iiint_\Omega \rho \, dV \\
+    &= \int_0^{2\pi} d\theta \int_0^2 r \, dr \int_r^{4-r} r^2 \, dz \\
+    &= \int_0^{2\pi} d\theta \int_0^2 r^3 (4-r-r) \, dr \\
+    &= 2\pi \int_0^2 r^3 (4 - 2r) \, dr \\
+    &= 2\pi \int_0^2 (4r^3 - 2r^4) \, dr \\
+    &= 2\pi \left[ r^4 - \dfrac{2r^5}{5} \right]_0^2 \\
+    &= 2\pi \left( 16 - \dfrac{2 \cdot 32}{5} \right) \\
+    &= 2\pi \left( 16 - \dfrac{64}{5} \right) \\
+    &= 2\pi \cdot \dfrac{80 - 64}{5} \\
+    &= 2\pi \cdot \dfrac{16}{5} = \dfrac{32\pi}{5}
+\end{align*}
 
-\textbf{Answer:} $m = \frac{32\pi}{5}$
-
+\textit{Kết luận:} Khối lượng của vật thể $\Omega$ là $\dfrac{32\pi}{5}$.
 \end{solution}
 
-\subsection{Problem 4: Line Integral (Green's Theorem)}
+% ================================================================
+% CÂU 4: TÍCH PHÂN ĐƯỜNG VÀ ĐỊNH LÝ GREEN
+% ================================================================
+\subsection*{Câu 4: Tích phân đường và Định lý Green}
+
+\begin{questionbox}
+Tính tích phân đường:
+\[
+    I = \int_\gamma (5y - 6^x)\,dx + (10x + 6^y)\,dy,
+\]
+trong đó $\gamma$ là đường tròn $x^2 + y^2 = 36$.
+\end{questionbox}
 
 \begin{solution}
-$$I = \int_\gamma (5y - 6^x)dx + (10x + 6^y)dy$$
+Tính tích phân đường: $I = \oint_\gamma (5y - 6^x) \, dx + (10x + 6^y) \, dy$
 
-Using Green's Theorem with $\gamma$ being circle $x^2 + y^2 = 36$ (counterclockwise):
+với $\gamma$ là đường tròn $x^2 + y^2 = 36$ định hướng ngược chiều kim đồng hồ.
 
-$$I = \iint_D \left(\frac{\partial(10x + 6^y)}{\partial x} - \frac{\partial(5y - 6^x)}{\partial y}\right) dA$$
+\textit{} Áp dụng định lý Green:
+Với $P(x,y) = 5y - 6^x$ và $Q(x,y) = 10x + 6^y$:
+\[
+    I = \iint_D \left( \dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} \right) dA
+\]
 
-$$= \iint_D (10 - 5) dA = 5 \iint_D dA$$
+\textit{} Tính các đạo hàm riêng:
+\begin{align*}
+    \dfrac{\partial Q}{\partial x} &= \dfrac{\partial}{\partial x}(10x + 6^y) = 10 \\
+    \dfrac{\partial P}{\partial y} &= \dfrac{\partial}{\partial y}(5y - 6^x) = 5
+\end{align*}
 
-$$= 5 \cdot \text{Area of circle} = 5 \cdot 36\pi = 180\pi$$
+\textit{} Áp dụng công thức Green:
+\begin{align*}
+    I &= \iint_D (10 - 5) \, dA = 5 \iint_D dA \\
+    &= 5 \times \text{Diện tích}(D)
+\end{align*}
 
-\textbf{Answer:} $I = 180\pi$
+\textit{} Tính diện tích miền $D$:
+Miền $D$ là hình tròn có bán kính $R = 6$ (vì $x^2 + y^2 = 36$).
 
+Diện tích: $\text{Area}(D) = \pi R^2 = \pi \cdot 6^2 = 36\pi$
+
+\textit{} Kết quả cuối cùng:
+\[
+    I = 5 \times 36\pi = 180\pi
+\]
+
+\textit{Kết luận:} Tích phân đường $I = 180\pi$.
 \end{solution}
 
 \newpage

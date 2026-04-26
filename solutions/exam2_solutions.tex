@@ -1,261 +1,364 @@
-\section*{Solutions: Exam 2 - Abstract Algebra}
+% ================================================================
+% LỜI GIẢI ĐỀ THI 2: ĐẠI SỐ ĐẠI CƯƠNG
+% Lời giải chi tiết với các bước giải rõ ràng
+% ================================================================
 
-\subsection{Problem 1a: Proving $(\mathbb{Z}, *)$ is a Group}
+\section*{Lời giải Đề 2: Đại số đại cương}
+\addcontentsline{toc}{section}{Lời giải Đề 2: Đại số đại cương}
+
+% ================================================================
+% CÂU 1A: CHỨNG MINH $(\mathbb{Z}, *)$ LÀ MỘT NHÓM
+% ================================================================
+\subsection*{Câu 1a: Chứng minh $(\mathbb{Z}, *)$ là một nhóm}
+
+\begin{questionbox}
+Trên tập hợp $\mathbb{Z}$ các số nguyên, cho phép toán $(*)$ xác định như sau: $a * b = a + b + 2026$ với mọi $a, b \in \mathbb{Z}$. Chứng minh rằng tập hợp $\mathbb{Z}$ cùng với phép toán $(*)$ là một nhóm.
+\end{questionbox}
 
 \begin{solution}
-Given: $a * b = a + b + 2026$ for all $a, b \in \mathbb{Z}$
+Cho phép toán: $a * b = a + b + 2026$ với mọi $a, b \in \mathbb{Z}$.
 
-We need to verify:
-\begin{enumerate}
-    \item \textbf{Closure:} For all $a, b \in \mathbb{Z}$, $a * b = a + b + 2026 \in \mathbb{Z}$ ✓
-    
-    \item \textbf{Associativity:} 
-    \begin{align*}
-        (a * b) * c &= (a + b + 2026) * c\\
-        &= (a + b + 2026) + c + 2026\\
-        &= a + b + c + 2 \cdot 2026
-    \end{align*}
-    
-    \begin{align*}
-        a * (b * c) &= a * (b + c + 2026)\\
-        &= a + (b + c + 2026) + 2026\\
-        &= a + b + c + 2 \cdot 2026
-    \end{align*}
-    
-    So $(a * b) * c = a * (b * c)$ ✓
-    
-    \item \textbf{Identity element:} We need $e$ such that $a * e = a$ for all $a \in \mathbb{Z}$
-    
-    $a * e = a + e + 2026 = a$
-    
-    Thus: $e = -2026$
-    
-    Check: $a * (-2026) = a + (-2026) + 2026 = a$ ✓
-    
-    \item \textbf{Inverse element:} For each $a \in \mathbb{Z}$, we need $a' \in \mathbb{Z}$ such that $a * a' = e = -2026$
-    
-    $a + a' + 2026 = -2026$
-    
-    Thus: $a' = -4052 - a \in \mathbb{Z}$
-    
-    Check: $a * (-4052 - a) = a + (-4052 - a) + 2026 = -2026$ ✓
-\end{enumerate}
+Để chứng minh $(\mathbb{Z}, *)$ là một nhóm, ta cần kiểm tra bốn tiên đề của nhóm:
 
-\textbf{Conclusion:} $(\mathbb{Z}, *)$ satisfies all group axioms, so it is a group.
+\textit{Tính đóng}
+Với mọi $a, b \in \mathbb{Z}$, ta có:
+\[
+    a * b = a + b + 2026
+\]
+Vì $a, b \in \mathbb{Z}$ và $2026 \in \mathbb{Z}$, nên tổng $a + b + 2026 \in \mathbb{Z}$.
+Vậy phép toán $(*)$ có tính đóng trên $\mathbb{Z}$. $\checkmark$
 
+\textit{Tính kết hợp}
+Với mọi $a, b, c \in \mathbb{Z}$, ta thực hiện phép tính:
+\begin{align*}
+    (a * b) * c &= (a + b + 2026) * c \\
+    &= (a + b + 2026) + c + 2026 \\
+    &= a + b + c + 4052
+\end{align*}
+Đồng thời:
+\begin{align*}
+    a * (b * c) &= a * (b + c + 2026) \\
+    &= a + (b + c + 2026) + 2026 \\
+    &= a + b + c + 4052
+\end{align*}
+Suy ra $(a * b) * c = a * (b * c)$. Vậy phép toán $(*)$ có tính kết hợp. $\checkmark$
+
+\textit{Tồn tại phần tử đơn vị}
+Ta cần tìm phần tử $e \in \mathbb{Z}$ sao cho $a * e = e * a = a$ với mọi $a \in \mathbb{Z}$.
+Từ phương trình $a * e = a$:
+\[
+    a + e + 2026 = a \Rightarrow e = -2026
+\]
+Kiểm tra lại điều kiện $e * a$:
+\[
+    e * a = (-2026) + a + 2026 = a
+\]
+Vì $e = -2026 \in \mathbb{Z}$, nên phần tử đơn vị tồn tại và bằng $-2026$. $\checkmark$
+
+\textit{Tồn tại phần tử nghịch đảo}
+Với mỗi $a \in \mathbb{Z}$, ta cần tìm phần tử nghịch đảo $a^{-1} \in \mathbb{Z}$ sao cho $a * a^{-1} = a^{-1} * a = e = -2026$.
+Từ phương trình $a * a^{-1} = -2026$:
+\[
+    a + a^{-1} + 2026 = -2026 \Rightarrow a^{-1} = -4052 - a
+\]
+Vì $a \in \mathbb{Z}$ nên $a^{-1} = -4052 - a \in \mathbb{Z}$.
+Kiểm tra lại điều kiện $a^{-1} * a$:
+\[
+    a^{-1} * a = (-4052 - a) + a + 2026 = -2026 = e
+\]
+Vậy mọi phần tử $a \in \mathbb{Z}$ đều có phần tử nghịch đảo trong $\mathbb{Z}$. $\checkmark$
+
+\textit{Kết luận:} Cấu trúc đại số $(\mathbb{Z}, *)$ thỏa mãn đầy đủ bốn tiên đề, do đó là một nhóm. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 1b: Is $X = \{4k+2 | k \in \mathbb{Z}\}$ a Subgroup?}
+% ================================================================
+% CÂU 1B: TẬP $X = \{4k+2 \mid k \in \mathbb{Z}\}$ CÓ PHẢI LÀ NHÓM CON KHÔNG?
+% ================================================================
+\subsection*{Câu 1b: Tập $X = \{4k+2 \mid k \in \mathbb{Z}\}$ có phải là nhóm con không?}
+
+\begin{questionbox}
+Tập hợp $X = \{4k + 2 \mid k \in \mathbb{Z}\}$ có phải là nhóm con của nhóm $(\mathbb{Z}, *)$ không? Giải thích.
+\end{questionbox}
 
 \begin{solution}
-$X$ is the set of all even integers of the form $4k+2$ (i.e., 2, 6, 10, -2, -6, ...).
+Cho tập hợp: $X = \{4k + 2 \mid k \in \mathbb{Z}\}$.
+Để chứng minh $X$ là một nhóm con của $(\mathbb{Z}, *)$, ta cần kiểm tra các điều kiện của tiêu chuẩn nhóm con:
 
-For $X$ to be a subgroup, we need:
-\begin{enumerate}
-    \item $X \neq \emptyset$ (clearly true)
-    \item For $a, b \in X$, the inverse $a' \in X$ and $a * a' \in X$ (subgroup criterion)
-\end{enumerate}
+\textit{Chứng minh $X$ khác rỗng}
+Chọn $k = 0 \in \mathbb{Z}$, ta có phần tử $4 \cdot 0 + 2 = 2 \in X$.
+Vậy $X \neq \emptyset$. $\checkmark$
 
-\textbf{Check identity element:} The identity is $e = -2026$
+\textit{Kiểm tra phần tử đơn vị thuộc $X$}
+Từ câu 1a, ta biết phần tử đơn vị của nhóm $(\mathbb{Z}, *)$ là $e = -2026$.
+Ta kiểm tra xem tồn tại $k \in \mathbb{Z}$ để $e \in X$ hay không:
+\[
+    -2026 = 4k + 2 \Rightarrow 4k = -2028 \Rightarrow k = -507
+\]
+Vì $-507 \in \mathbb{Z}$, nên phần tử đơn vị $e = -2026$ thuộc tập $X$. $\checkmark$
 
-Is $-2026 \in X$? We need $-2026 = 4k + 2$ for some $k \in \mathbb{Z}$
+\textit{Tính đóng đối với phép lấy nghịch đảo}
+Lấy một phần tử bất kỳ $a \in X$. Theo định nghĩa, $a = 4k_1 + 2$ với $k_1 \in \mathbb{Z}$.
+Theo câu 1a, nghịch đảo của $a$ trong nhóm $\mathbb{Z}$ là:
+\begin{align*}
+    a^{-1} &= -4052 - a \\
+    &= -4052 - (4k_1 + 2) \\
+    &= -4054 - 4k_1 \\
+    &= 4(-1014 - k_1) + 2
+\end{align*}
+Đặt $k' = -1014 - k_1$, rõ ràng $k' \in \mathbb{Z}$. Do đó $a^{-1} = 4k' + 2 \in X$.
+Vậy $X$ đóng đối với phép nghịch đảo. $\checkmark$
 
-$-2026 = 4k + 2 \Rightarrow 4k = -2028 \Rightarrow k = -507$
+\textit{Tính đóng đối với phép toán nhóm}
+Lấy hai phần tử bất kỳ $a, b \in X$. Khi đó, $a = 4k_1 + 2$ và $b = 4k_2 + 2$ với $k_1, k_2 \in \mathbb{Z}$.
+Áp dụng phép toán $(*)$:
+\begin{align*}
+    a * b &= a + b + 2026 \\
+    &= (4k_1 + 2) + (4k_2 + 2) + 2026 \\
+    &= 4k_1 + 4k_2 + 2030 \\
+    &= 4(k_1 + k_2 + 507) + 2
+\end{align*}
+Đặt $k'' = k_1 + k_2 + 507$, ta có $k'' \in \mathbb{Z}$. Suy ra $a * b = 4k'' + 2 \in X$.
+Vậy $X$ đóng đối với phép toán $(*)$. $\checkmark$
 
-Yes! $-2026 = 4(-507) + 2 \in X$ ✓
-
-\textbf{Check closure:} Take $a = 2, b = 6 \in X$
-
-$a * b = 2 + 6 + 2026 = 2034 = 4(508) + 2 \in X$ ✓
-
-\textbf{Check inverses:} For $a = 2$, the inverse is $a' = -4052 - 2 = -4054 = 4(-1014) + 2 \in X$ ✓
-
-Actually, let me verify more generally: If $a = 4k + 2$, then
-$$a' = -4052 - a = -4052 - (4k + 2) = -4054 - 4k = 4(-1013.5 - k)$$
-
-Wait, $-4054 = 4(-1013.5)$, which is not an integer coefficient. Let me recalculate:
-
-$-4054 / 4 = -1013.5$, so $a' = -4054 - 4k$ doesn't have the form $4m + 2$.
-
-Let me verify: $-4054 = 4(-1014) + 2$? 
-$4(-1014) + 2 = -4056 + 2 = -4054$ ✓
-
-So $a' = 4(-1014) - 4k = 4(-1014 - k) + 2 \in X$ ✓
-
-\textbf{Conclusion:} $X$ is a subgroup of $(\mathbb{Z}, *)$
-
+\textit{Kết luận:} Vì $X$ khác rỗng, chứa phần tử đơn vị, và đóng đối với cả phép toán lẫn phép nghịch đảo, tập hợp $X$ là một nhóm con của $(\mathbb{Z}, *)$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 2: Group Homomorphism}
+% ================================================================
+% CÂU 2: ĐỒNG CẤU NHÓM
+% ================================================================
+\subsection*{Câu 2: Đồng cấu nhóm}
+
+\begin{questionbox}
+Cho $X = \langle x \rangle_m$ là nhóm nhân cyclic cấp $m$ sinh bởi $x$ và $Y = \langle y \rangle_n$ là nhóm nhân cyclic cấp $n$ sinh bởi $y$. Chứng minh rằng quy tắc $\varphi: X \to Y; x^l \mapsto (y^k)^l$ ($k \in \mathbb{N}^*$) là một đồng cấu khi $km$ chia hết cho $n$.
+\end{questionbox}
 
 \begin{solution}
-Given: $\varphi: X \to Y; x^l \mapsto (y^k)^l$ where $X$ is cyclic order $m$, $Y$ is cyclic order $n$
+Cho $\varphi: X \to Y$ xác định bởi $\varphi(x^l) = (y^k)^l = y^{kl}$.
 
-Hypothesis: $km \equiv 0 \pmod{n}$ (i.e., $n | km$)
+\textit{Kiểm tra tính ánh xạ (well-defined)}
+Giả sử $x^l = x^{l'}$, ta cần chứng minh $\varphi(x^l) = \varphi(x^{l'})$.
+Vì $x$ có cấp $m$, nên $x^l = x^{l'} \Rightarrow l \equiv l' \pmod m$.
+Tức là $l - l' = qm$ với $q \in \mathbb{Z}$.
+Khi đó:
+\[
+    kl - kl' = k(l - l') = kqm
+\]
+Vì giả thiết $km$ chia hết cho $n$, nên tồn tại $p \in \mathbb{Z}$ sao cho $km = pn$. Do đó:
+\[
+    kl - kl' = pqn \Rightarrow kl \equiv kl' \pmod n
+\]
+Vì $y$ có cấp $n$, nên $y^{kl} = y^{kl'}$. Suy ra $\varphi(x^l) = \varphi(x^{l'})$.
+Vậy $\varphi$ là một ánh xạ hoàn chỉnh. $\checkmark$
 
-We need to prove $\varphi$ is a homomorphism: $\varphi(x^a \cdot x^b) = \varphi(x^a) \cdot \varphi(x^b)$
+\textit{Kiểm tra tính đồng cấu}
+Với mọi $x^a, x^b \in X$, ta có:
+\begin{align*}
+    \varphi(x^a \cdot x^b) &= \varphi(x^{a+b}) = y^{k(a+b)} \\
+    &= y^{ka + kb} = y^{ka} \cdot y^{kb} \\
+    &= \varphi(x^a) \cdot \varphi(x^b)
+\end{align*}
+Vậy $\varphi$ bảo toàn phép toán nhóm. $\checkmark$
 
-\textbf{Verification:}
-
-In $X$: $x^a \cdot x^b = x^{a+b}$ (multiplicatively)
-
-$$\varphi(x^{a+b}) = (y^k)^{a+b} = y^{k(a+b)}$$
-
-$$\varphi(x^a) \cdot \varphi(x^b) = (y^k)^a \cdot (y^k)^b = y^{ka} \cdot y^{kb} = y^{k(a+b)}$$
-
-So $\varphi(x^{a+b}) = \varphi(x^a) \cdot \varphi(x^b)$ ✓
-
-\textbf{Well-definedness:} We need to ensure the mapping is well-defined in $Y$.
-
-For $\varphi$ to be well-defined, if $x^l = x^{l'}$ in $X$, then $(y^k)^l = (y^k)^{l'}$ in $Y$.
-
-$x^l = x^{l'}$ in $X$ means $l \equiv l' \pmod{m}$
-
-$(y^k)^l = (y^k)^{l'}$ in $Y$ means $kl \equiv kl' \pmod{n}$
-
-Given $n | km$, we have $kl \equiv kl' \pmod{n}$ whenever $l \equiv l' \pmod{m}$ ✓
-
-\textbf{Conclusion:} $\varphi$ is a group homomorphism.
-
+\textit{Kết luận:} $\varphi$ là một đồng cấu nhóm từ $X$ vào $Y$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 3a: $\mathbb{Z}(\sqrt{2})$ is a Ring}
+% ================================================================
+% CÂU 3A: $\mathbb{Z}(\sqrt{2})$ LÀ MỘT VÀNH
+% ================================================================
+\subsection*{Câu 3a: $\mathbb{Z}(\sqrt{2})$ là một vành}
+
+\begin{questionbox}
+Cho tập hợp $\mathbb{Z}(\sqrt{2}) = \{a + b\sqrt{2} \mid a, b \in \mathbb{Z}\}$. Chứng minh rằng $\mathbb{Z}(\sqrt{2})$ là một vành với phép cộng và phép nhân các số thực.
+\end{questionbox}
 
 \begin{solution}
-$\mathbb{Z}(\sqrt{2}) = \{a + b\sqrt{2} | a, b \in \mathbb{Z}\}$ with standard real addition and multiplication.
+Cho tập hợp $\mathbb{Z}(\sqrt{2}) = \{a + b\sqrt{2} \mid a, b \in \mathbb{Z}\}$. Vì $\mathbb{Z}(\sqrt{2}) \subset \mathbb{R}$, ta chỉ cần chứng minh nó là vành con của $\mathbb{R}$:
 
-\textbf{Verification of ring axioms:}
+\textit{Kiểm tra phần tử đơn vị}
+Ta có $1 = 1 + 0\sqrt{2}$. Vì $1, 0 \in \mathbb{Z}$ nên $1 \in \mathbb{Z}(\sqrt{2})$. $\checkmark$
 
-\begin{enumerate}
-    \item \textbf{Closure under addition:} $(a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2}) = (a_1+a_2) + (b_1+b_2)\sqrt{2} \in \mathbb{Z}(\sqrt{2})$ ✓
-    
-    \item \textbf{Additive identity:} $0 = 0 + 0\sqrt{2} \in \mathbb{Z}(\sqrt{2})$ ✓
-    
-    \item \textbf{Additive inverses:} $-(a + b\sqrt{2}) = (-a) + (-b)\sqrt{2} \in \mathbb{Z}(\sqrt{2})$ ✓
-    
-    \item \textbf{Associativity of addition:} Inherited from $\mathbb{R}$ ✓
-    
-    \item \textbf{Commutativity of addition:} Inherited from $\mathbb{R}$ ✓
-    
-    \item \textbf{Closure under multiplication:} 
-    $(a_1 + b_1\sqrt{2})(a_2 + b_2\sqrt{2}) = a_1a_2 + 2b_1b_2 + (a_1b_2 + a_2b_1)\sqrt{2} \in \mathbb{Z}(\sqrt{2})$ ✓
-    
-    \item \textbf{Multiplicative identity:} $1 = 1 + 0\sqrt{2} \in \mathbb{Z}(\sqrt{2})$ ✓
-    
-    \item \textbf{Associativity of multiplication:} Inherited from $\mathbb{R}$ ✓
-    
-    \item \textbf{Distributivity:} Inherited from $\mathbb{R}$ ✓
-    
-    \item \textbf{Commutativity of multiplication:} Inherited from $\mathbb{R}$ ✓
-\end{enumerate}
+\textit{Kiểm tra tính đóng của phép trừ}
+Với $x = a_1 + b_1\sqrt{2}$ và $y = a_2 + b_2\sqrt{2}$ thuộc $\mathbb{Z}(\sqrt{2})$:
+\begin{align*}
+    x - y &= (a_1 + b_1\sqrt{2}) - (a_2 + b_2\sqrt{2}) \\
+    &= (a_1 - a_2) + (b_1 - b_2)\sqrt{2}
+\end{align*}
+Vì $a_1, a_2, b_1, b_2 \in \mathbb{Z}$ nên $a_1 - a_2 \in \mathbb{Z}$ và $b_1 - b_2 \in \mathbb{Z}$.
+Suy ra $x - y \in \mathbb{Z}(\sqrt{2})$. $\checkmark$
 
-\textbf{Conclusion:} $\mathbb{Z}(\sqrt{2})$ is a commutative ring with unity.
+\textit{Kiểm tra tính đóng của phép nhân}
+\begin{align*}
+    xy &= (a_1 + b_1\sqrt{2})(a_2 + b_2\sqrt{2}) \\
+    &= a_1a_2 + a_1b_2\sqrt{2} + b_1a_2\sqrt{2} + 2b_1b_2 \\
+    &= (a_1a_2 + 2b_1b_2) + (a_1b_2 + a_2b_1)\sqrt{2}
+\end{align*}
+Vì $a_1, a_2, b_1, b_2 \in \mathbb{Z}$ nên $(a_1a_2 + 2b_1b_2) \in \mathbb{Z}$ và $(a_1b_2 + a_2b_1) \in \mathbb{Z}$.
+Suy ra $xy \in \mathbb{Z}(\sqrt{2})$. $\checkmark$
 
+\textit{Kết luận:} $\mathbb{Z}(\sqrt{2})$ thỏa mãn các điều kiện của một vành con của $\mathbb{R}$, do đó nó là một vành. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 3b: Is $\mathbb{Z}(\sqrt{2})$ a Field?}
+% ================================================================
+% CÂU 3B: $\mathbb{Z}(\sqrt{2})$ CÓ PHẢI LÀ MỘT TRƯỜNG KHÔNG?
+% ================================================================
+\subsection*{Câu 3b: $\mathbb{Z}(\sqrt{2})$ có phải là một trường không?}
+
+\begin{questionbox}
+Vành $\mathbb{Z}(\sqrt{2})$ có phải là trường con của trường số thực không? Giải thích.
+\end{questionbox}
 
 \begin{solution}
-For $\mathbb{Z}(\sqrt{2})$ to be a field, every nonzero element must have a multiplicative inverse in $\mathbb{Z}(\sqrt{2})$.
+\textit{Nêu điều kiện để là trường}
+Để $\mathbb{Z}(\sqrt{2})$ là một trường, mọi phần tử khác 0 của nó phải có phần tử nghịch đảo cũng thuộc $\mathbb{Z}(\sqrt{2})$.
 
-\textbf{Counterexample:} Consider $a = 2 \in \mathbb{Z}(\sqrt{2})$
+\textit{Tìm phản ví dụ}
+Xét phần tử $x = 2 = 2 + 0\sqrt{2} \in \mathbb{Z}(\sqrt{2})$.
+Nghịch đảo của $x$ trong trường số thực $\mathbb{R}$ là $x^{-1} = \dfrac{1}{2}$.
 
-The multiplicative inverse of 2 would be $2^{-1} = \frac{1}{2}$
+\textit{Chứng minh nghịch đảo không thuộc $\mathbb{Z}(\sqrt{2})$}
+Giả sử $\dfrac{1}{2} \in \mathbb{Z}(\sqrt{2})$, khi đó tồn tại $a, b \in \mathbb{Z}$ sao cho:
+\[
+    \dfrac{1}{2} = a + b\sqrt{2} \Rightarrow 1 = 2a + 2b\sqrt{2}
+\]
+Vì $\sqrt{2}$ là số vô tỷ, đẳng thức trên chỉ xảy ra khi:
+\begin{align*}
+    2a &= 1 \Rightarrow a = \dfrac{1}{2} \\
+    2b &= 0 \Rightarrow b = 0
+\end{align*}
+Tuy nhiên, $a = \dfrac{1}{2} \notin \mathbb{Z}$, dẫn đến mâu thuẫn.
+Vậy $x = 2$ không có phần tử nghịch đảo trong $\mathbb{Z}(\sqrt{2})$. $\checkmark$
 
-Is $\frac{1}{2} \in \mathbb{Z}(\sqrt{2})$? We need integers $p, q$ such that:
-$$\frac{1}{2} = p + q\sqrt{2}$$
-
-This implies $1 = 2p + 2q\sqrt{2}$
-
-Comparing rational and irrational parts:
-- Rational: $2p = 1 \Rightarrow p = 1/2 \notin \mathbb{Z}$
-- Irrational: $2q = 0 \Rightarrow q = 0$
-
-This is a contradiction, so $2^{-1} \notin \mathbb{Z}(\sqrt{2})$.
-
-\textbf{Conclusion:} $\mathbb{Z}(\sqrt{2})$ is NOT a field. However, it is an integral domain (as it's a subring of $\mathbb{R}$).
-
+\textit{Kết luận:} Vành $\mathbb{Z}(\sqrt{2})$ không phải là một trường con của $\mathbb{R}$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 4: Field, Integral Domain, and Properties}
+% ================================================================
+% CÂU 4: TRƯỜNG VÀ MIỀN NGUYÊN
+% ================================================================
+\subsection*{Câu 4: Trường và Miền nguyên}
+
+\begin{questionbox}
+a) Phát biểu định nghĩa về trường và miền nguyên. b) Chứng minh rằng mọi trường đều là miền nguyên. c) Với $n > 1$, vành $\mathbb{Z}^n$ có phải là miền nguyên không? Giải thích.
+\end{questionbox}
 
 \begin{solution}
+\textit{a) Định nghĩa:}
+\begin{itemize}
+    \item \textit{Trường:} là một vành giao hoán có đơn vị mà mọi phần tử khác không đều có nghịch đảo.
+    \item \textit{Miền nguyên:} là một vành giao hoán có đơn vị $1 \neq 0$ và không có ước của không.
+\end{itemize}
 
-\textbf{a) Definitions:}
+\textit{b) Chứng minh mọi trường đều là miền nguyên:}
+Cho $F$ là một trường. Giả sử $a, b \in F$ sao cho $ab = 0$.
+Cần chứng minh $a = 0$ hoặc $b = 0$.
+Nếu $a \neq 0$, vì $F$ là trường nên tồn tại phần tử nghịch đảo $a^{-1} \in F$.
+Nhân cả hai vế của phương trình $ab = 0$ với $a^{-1}$ từ bên trái:
+\begin{align*}
+    a^{-1}(ab) &= a^{-1} \cdot 0 \\
+    (a^{-1}a)b &= 0 \\
+    1 \cdot b &= 0 \Rightarrow b = 0
+\end{align*}
+Tương tự, nếu $b \neq 0$, ta chứng minh được $a = 0$.
+Vậy $F$ không có ước của không. Do $F$ là trường nên nó là vành giao hoán có đơn vị $1 \neq 0$.
+Suy ra $F$ là miền nguyên. $\checkmark$
 
-\textbf{Field:} A commutative ring $F$ with unity $1 \neq 0$ where every nonzero element has a multiplicative inverse.
+\textit{c) Xét vành $\mathbb{Z}^n$ với $n > 1$:}
+Ta dùng phản ví dụ để chứng minh $\mathbb{Z}^n$ không phải là miền nguyên.
+Trong vành $\mathbb{Z}^n$, xét hai phần tử:
+\[
+    a = (1, 0, 0, \dots, 0) \quad \text{và} \quad b = (0, 1, 0, \dots, 0)
+\]
+Rõ ràng $a \neq 0$ và $b \neq 0$ (phần tử không là $(0, 0, \dots, 0)$).
+Tuy nhiên, phép nhân trong $\mathbb{Z}^n$ được thực hiện theo từng tọa độ:
+\[
+    a \cdot b = (1 \cdot 0, 0 \cdot 1, 0 \cdot 0, \dots, 0 \cdot 0) = (0, 0, 0, \dots, 0)
+\]
+Vậy $a$ và $b$ là các ước của không. $\checkmark$
 
-\textbf{Integral Domain:} A commutative ring $D$ with unity $1 \neq 0$ with no zero divisors (i.e., $ab = 0 \Rightarrow a = 0$ or $b = 0$).
-
-\textbf{b) Every field is an integral domain:}
-
-Let $F$ be a field. Suppose $ab = 0$ for $a, b \in F$.
-
-If $a \neq 0$, then $a^{-1}$ exists. Thus:
-$$b = a^{-1}(ab) = a^{-1} \cdot 0 = 0$$
-
-So no zero divisors exist. Hence $F$ is an integral domain. ✓
-
-\textbf{c) Is $\mathbb{Z}^n$ ($n > 1$) an integral domain?}
-
-\textbf{No.} $\mathbb{Z}^n$ has zero divisors.
-
-\textbf{Counterexample:} In $\mathbb{Z}^2$, let $a = (1, 0)$ and $b = (0, 1)$.
-
-Both $a, b \neq (0, 0)$, but $ab = (1 \cdot 0, 0 \cdot 1) = (0, 0)$.
-
-Hence $\mathbb{Z}^2$ is not an integral domain.
-
+\textit{Kết luận:} $\mathbb{Z}^n$ với $n > 1$ không phải là miền nguyên. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 5a: Eisenstein's Criterion}
+% ================================================================
+% CÂU 5A: TIÊU CHUẨN EISENSTEIN
+% ================================================================
+\subsection*{Câu 5a: Tiêu chuẩn Eisenstein}
+
+\begin{questionbox}
+Dùng tiêu chuẩn Eisenstein để chứng minh đa thức $x^3 - 3x + 1$ là bất khả quy trong $\mathbb{Q}[x]$.
+\end{questionbox}
 
 \begin{solution}
-Polynomial: $f(x) = x^3 - 3x + 1 \in \mathbb{Q}[x]$
+\textit{Xác định đa thức}
+Cho đa thức $f(x) = x^3 - 3x + 1$. 
+Các hệ số của đa thức là $a_3 = 1, a_2 = 0, a_1 = -3, a_0 = 1$.
+Ta thấy tiêu chuẩn Eisenstein không áp dụng trực tiếp được cho $f(x)$ vì không có số nguyên tố $p$ nào chia hết cả $a_0 = 1$ và $a_1 = -3$.
 
-\textbf{Eisenstein's Criterion:} If for prime $p$:
-\begin{enumerate}
-    \item $p | a_i$ for all $i < n$ (all non-leading coefficients)
-    \item $p \nmid a_n$ (leading coefficient)
-    \item $p^2 \nmid a_0$ (constant term)
-\end{enumerate}
-Then $f(x)$ is irreducible over $\mathbb{Q}$.
+\textit{Phép biến đổi tịnh tiến}
+Xét đa thức $h(x) = f(x - 1) = (x - 1)^3 - 3(x - 1) + 1$:
+\begin{align*}
+    h(x) &= (x^3 - 3x^2 + 3x - 1) - (3x - 3) + 1 \\
+    &= x^3 - 3x^2 + 3
+\end{align*}
 
-Try $p = 3$:
-- Coefficients: $1, 0, -3, 1$
-- $3 | 0, 3 | (-3)$ (non-leading coefficients) ✓
-- $3 \nmid 1$ (leading coefficient) ✓
-- $3^2 = 9 \nmid 1$ (constant term) ✓
+\textit{Áp dụng tiêu chuẩn Eisenstein}
+Xét $h(x) = x^3 - 3x^2 + 3$, ta có các hệ số $b_3 = 1, b_2 = -3, b_1 = 0, b_0 = 3$.
+Chọn số nguyên tố $p = 3$, ta kiểm tra các điều kiện:
+\begin{itemize}
+    \item $p = 3$ chia hết cho các hệ số $b_2 = -3, b_1 = 0, b_0 = 3$. $\checkmark$
+    \item $p = 3$ không chia hết cho hệ số cao nhất $b_3 = 1$. $\checkmark$
+    \item $p^2 = 9$ không chia hết cho hệ số tự do $b_0 = 3$. $\checkmark$
+\end{itemize}
+Cả ba điều kiện của tiêu chuẩn Eisenstein đều được thỏa mãn.
 
-\textbf{Conclusion:} $f(x) = x^3 - 3x + 1$ is irreducible in $\mathbb{Q}[x]$ by Eisenstein's criterion with $p = 3$.
-
+\textit{Kết luận:} Theo tiêu chuẩn Eisenstein, $h(x)$ bất khả quy trên $\mathbb{Q}$, do đó $f(x)$ cũng bất khả quy trong $\mathbb{Q}[x]$. $\blacksquare$
 \end{solution}
 
-\subsection{Problem 5b: Polynomial Division in $\mathbb{Z}_7[x]$}
+% ================================================================
+% CÂU 5B: CHIA ĐA THỨC TRONG $\mathbb{Z}_7[x]$
+% ================================================================
+\subsection*{Câu 5b: Chia đa thức trong $\mathbb{Z}_7[x]$}
+
+\begin{questionbox}
+Trong vành $\mathbb{Z}_7[x]$, cho hai đa thức $f = x^3 + \overline{p}x + \overline{5}$ và $g = x^2 + \overline{5}x + \overline{6}$. Xác định $p$ để đa thức $f$ chia hết cho $g$.
+\end{questionbox}
 
 \begin{solution}
-$f = x^3 + \overline{p}x + \overline{5}$ and $g = x^2 + \overline{5}x + \overline{6}$ in $\mathbb{Z}_7[x]$
+\textit{Thiết lập phép chia đa thức}
+Trong $\mathbb{Z}_7[x]$, thực hiện phép chia $f(x) = x^3 + px + 5$ cho $g(x) = x^2 + 5x + 6$:
+Ta có thể viết $f(x) = g(x) \cdot q(x) + r(x)$.
+Vì $\deg(f) = 3$ và $\deg(g) = 2$, nên thương $q(x)$ có dạng $x + a$.
+Thực hiện chia đa thức để triệt tiêu bậc cao nhất, ta chọn $q(x) = x - 5$:
+\begin{align*}
+    x^3 + px + 5 &= (x^2 + 5x + 6)(x - 5) + R(x)
+\end{align*}
+Khai triển phần bị chia dự kiến:
+\begin{align*}
+    (x^2 + 5x + 6)(x - 5) &= x^3 - 5x^2 + 5x^2 - 25x + 6x - 30 \\
+    &= x^3 - 19x - 30
+\end{align*}
 
-For $g | f$, we need $f = gq + r$ where $\deg(r) < 2$.
+\textit{Rút gọn các hệ số trong $\mathbb{Z}_7$}
+Ta đưa các hệ số về dạng chuẩn trong $\mathbb{Z}_7$:
+\begin{align*}
+    -19 &\equiv -19 + 3 \times 7 = 2 \pmod 7 \\
+    -30 &\equiv -30 + 5 \times 7 = 5 \pmod 7
+\end{align*}
+Vậy:
+\[
+    (x^2 + 5x + 6)(x - 5) \equiv x^3 + 2x + 5 \pmod 7
+\]
 
-Divide: $f = g(x - 5) + (ax + b)$
+\textit{Đồng nhất hệ số}
+Để $f(x)$ chia hết cho $g(x)$ trong $\mathbb{Z}_7[x]$, phần dư $R(x)$ phải bằng 0. 
+Khi đó $f(x)$ trùng với biểu thức vừa khai triển:
+\[
+    x^3 + px + 5 \equiv x^3 + 2x + 5 \pmod 7
+\]
+Đồng nhất hệ số của $x$, ta được:
+\[
+    p \equiv 2 \pmod 7
+\]
 
-$$x^3 + \overline{p}x + \overline{5} = (x^2 + \overline{5}x + \overline{6})(x - \overline{5}) + ax + b$$
-
-Expand RHS:
-$$(x^2 + \overline{5}x + \overline{6})(x - \overline{5}) = x^3 - \overline{5}x^2 + \overline{5}x^2 - \overline{25}x + \overline{6}x - \overline{30}$$
-
-$$= x^3 + (\overline{6} - \overline{25})x - \overline{30}$$
-
-In $\mathbb{Z}_7$: $-25 \equiv -25 + 28 = 3 \pmod{7}$ and $-30 \equiv -30 + 35 = 5 \pmod{7}$
-
-$$= x^3 + (\overline{6} + \overline{3})x + \overline{5} = x^3 + \overline{2}x + \overline{5}$$
-
-For $g | f$, we need remainder = 0:
-$$x^3 + \overline{p}x + \overline{5} = x^3 + \overline{2}x + \overline{5}$$
-
-Thus: $\overline{p} = \overline{2}$, so $\boxed{p \equiv 2 \pmod{7}}$
-
+\textit{Kết luận:} $p = 2$ là giá trị cần tìm (trong $\mathbb{Z}_7$). $\blacksquare$
 \end{solution}
 
 \newpage

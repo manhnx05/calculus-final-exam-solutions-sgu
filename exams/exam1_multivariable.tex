@@ -1,66 +1,157 @@
-\section*{Exam 1: Multivariable Calculus (Giải tích hàm nhiều biến - KHDL)}
+﻿% ================================================================
+% ĐỀ THI 1: GIẢI TÍCH HÀM NHIỀU BIẾN (KHDL)
+% Mã học phần: 858002 | Thời gian: 90 phút
+% ================================================================
 
+\section*{Đề 1: Giải tích hàm nhiều biến (KHDL)}
+\addcontentsline{toc}{section}{Đề 1: Giải tích hàm nhiều biến (KHDL)}
+
+% ----------------------------------------------------------------
+% HEADER THÔNG TIN ĐỀ THI
+% ----------------------------------------------------------------
 \noindent
 \begin{minipage}[t]{0.45\textwidth}
-\begin{center}
-\textbf{SAIGON UNIVERSITY}\\[0.2cm]
-\textbf{EXAM PAPER NO. 1}
-\end{center}
+    \begin{center}
+        \textbf{TRƯỜNG ĐẠI HỌC SÀI GÒN}\\[0.3cm]
+        \textbf{ĐỀ THI SỐ 1}
+    \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.5\textwidth}
-\begin{center}
-\textbf{FINAL EXAMINATION}\\
-Course: Multivariable Calculus\\
-\textbf{Course Code:} 858002\\
-\textit{Duration: 90 minutes (not including time to distribute papers)}
-\end{center}
+    \begin{center}
+        \textbf{ĐỀ THI KẾT THÚC HỌC PHẦN}\\[0.2cm]
+        Học phần: \textbf{Giải tích hàm nhiều biến (KHDL)}\\
+        \textbf{Mã học phần:} 858002\\[0.2cm]
+        \textit{Thời gian làm bài: 90 phút, không kể thời gian phát đề}
+    \end{center}
 \end{minipage}
 
-\vspace{0.5cm}
+\vspace{0.8cm}
 
+% ----------------------------------------------------------------
+% THÔNG TIN SINH VIÊN
+% ----------------------------------------------------------------
 \noindent
-Semester: II \dotfill Academic Year: 2025 -- 2026 \dotfill \\
-Training Level: Undergraduate \dotfill Training Form: Full-time \dotfill \\
-Student Name: \dotfill Student ID: \dotfill
+\rule{\textwidth}{0.5pt}\\[0.2cm]
+Học kỳ: II \dotfill Năm học: 2025--2026 \dotfill\\[0.2cm]
+Trình độ đào tạo: Đại học \dotfill Hình thức đào tạo: Chính quy \dotfill\\[0.2cm]
+Họ tên sinh viên: \dotfill Mã số sinh viên: \dotfill\\[0.2cm]
+\rule{\textwidth}{0.5pt}
 
-\vspace{0.5cm}
+\vspace{0.8cm}
 
+% ----------------------------------------------------------------
+% LƯU Ý CHO SINH VIÊN
+% ----------------------------------------------------------------
 \begin{center}
-Students \textbf{CANNOT} use materials. Invigilators provide no further explanations.
+    \fbox{%
+        \parbox{0.8\textwidth}{%
+            \centering
+            \textbf{LƯU Ý:} Sinh viên \textbf{KHÔNG} sử dụng tài liệu.\\
+            Cán bộ coi thi không giải thích gì thêm.
+        }%
+    }
 \end{center}
 
-\vspace{0.5cm}
+\vspace{1cm}
 
-\noindent\textbf{Problem 1. (5.0 points)} 
-\textbf{a)} Given the function $u(x, y) = (x + y)\sqrt{x^2 + y^2}$. Prove that:
-\[ x\frac{\partial u}{\partial x} + y\frac{\partial u}{\partial y} = 2u \quad \text{for all } (x, y) \neq (0,0). \]
+% ================================================================
+% NỘI DUNG ĐỀ THI
+% ================================================================
 
-\noindent\textbf{b)} Find the extrema of the function: $z = (x + y)^2 - \frac{x^4}{2} - \frac{y^4}{2}$.
-
-\vspace{0.2cm}
-\noindent\textbf{c)} Find the extrema of the function: $z = 20x^{\frac{1}{4}}y^{\frac{3}{4}}$, subject to the constraint $x + 3y = 8 \ (x, y > 0)$.
-
-\vspace{0.3cm}
-\noindent\textbf{Problem 2. (3.0 points)} 
-\textbf{a)} Calculate the area of the plane region $D$ bounded by the curves
-\[ y = \frac{1}{x}; \ y = \frac{5}{x}; \ x = y^2 \text{ and } x = 5y^2. \]
-
-\noindent\textbf{b)} The population density of a city is given by the function $f(x, y) = 20000e^{\frac{-(x^2+y^2)}{5}}$, calculated on the coordinate plane $Oxy$ with the origin as the city center (unit: people/km$^2$). Calculate the population of the city in the region with a radius of 5 km from the city center. What is the average population density of this region?
+% ----------------------------------------------------------------
+% CÂU 1 (5.0 ĐIỂM)
+% ----------------------------------------------------------------
+\noindent\textbf{\large Câu 1. (5,0 điểm)}
 
 \vspace{0.3cm}
-\noindent\textbf{Problem 3. (1.0 point)} In the space $\mathbb{R}^3$, consider the object:
-\[ \Omega = \left\{ (x, y, z) \in \mathbb{R}^3 : \sqrt{x^2 + y^2} \le z \le 4 - \sqrt{x^2 + y^2} \right\} \]
-with mass density distribution given by the function $\rho(x, y, z) = x^2 + y^2$. Calculate the mass of $\Omega$.
+
+\textbf{a)} Cho hàm số $u(x, y) = (x + y)\sqrt{x^2 + y^2}$. Chứng minh rằng:
+\[
+    x\dfrac{\partial u}{\partial x} + y\dfrac{\partial u}{\partial y} = 2u 
+    \quad \text{với mọi } (x, y) \neq (0,0).
+\]
+
+\vspace{0.4cm}
+
+\textbf{b)} Tìm cực trị của hàm số:
+\[
+    z = (x + y)^2 - \dfrac{x^4}{2} - \dfrac{y^4}{2}.
+\]
+
+\vspace{0.4cm}
+
+\textbf{c)} Tìm cực trị của hàm số $z = 20x^{1/4}y^{3/4}$, thỏa mãn điều kiện:
+\[
+    x + 3y = 8 \quad (x, y > 0).
+\]
+
+% ----------------------------------------------------------------
+% CÂU 2 (3.0 ĐIỂM)
+% ----------------------------------------------------------------
+\vspace{0.6cm}
+\noindent\textbf{\large Câu 2. (3,0 điểm)}
 
 \vspace{0.3cm}
-\noindent\textbf{Problem 4. (1.0 point)} Calculate the line integral
-\[ I = \int_\gamma (5y - 6^x)dx + (10x + 6^y)dy, \]
-where $\gamma$ is the circle $x^2 + y^2 = 36$.
 
-\vspace{0.5cm}
+\textbf{a)} Tính diện tích hình phẳng $D$ giới hạn bởi các đường:
+\[
+    y = \dfrac{1}{x}, \quad 
+    y = \dfrac{5}{x}, \quad 
+    x = y^2, \quad 
+    x = 5y^2.
+\]
+
+\vspace{0.4cm}
+
+\textbf{b)} Mật độ dân số của một thành phố được cho bởi hàm:
+\[
+    f(x, y) = 20000e^{-(x^2+y^2)/5}
+\]
+tính theo mặt phẳng tọa độ $Oxy$ với gốc là trung tâm thành phố (đơn vị: người/km²).
+
+Tính số dân của thành phố trong khu vực có bán kính 5 km tính từ trung tâm thành phố. Mật độ dân số trung bình của khu vực trên là bao nhiêu?
+
+% ----------------------------------------------------------------
+% CÂU 3 (1.0 ĐIỂM)
+% ----------------------------------------------------------------
+\vspace{0.6cm}
+\noindent\textbf{\large Câu 3. (1,0 điểm)}
+
+\vspace{0.3cm}
+
+Trong không gian $\mathbb{R}^3$, cho vật thể:
+\[
+    \Omega = \left\{ (x, y, z) \in \mathbb{R}^3 : \sqrt{x^2 + y^2} \leq z \leq 4 - \sqrt{x^2 + y^2} \right\}
+\]
+có khối lượng riêng phân bố theo hàm $\rho(x, y, z) = x^2 + y^2$. 
+
+Tính khối lượng của $\Omega$.
+
+% ----------------------------------------------------------------
+% CÂU 4 (1.0 ĐIỂM)
+% ----------------------------------------------------------------
+\vspace{0.6cm}
+\noindent\textbf{\large Câu 4. (1,0 điểm)}
+
+\vspace{0.3cm}
+
+Tính tích phân đường:
+\[
+    I = \int_\gamma (5y - 6^x)\,dx + (10x + 6^y)\,dy,
+\]
+trong đó $\gamma$ là đường tròn $x^2 + y^2 = 36$.
+
+% ----------------------------------------------------------------
+% KẾT THÚC ĐỀ THI
+% ----------------------------------------------------------------
+\vspace{1.5cm}
 \begin{center}
-----------------END----------------
+    \rule{0.5\textwidth}{0.5pt}\\[0.3cm]
+    \textbf{\large --- HẾT ---}\\[0.3cm]
+    \rule{0.5\textwidth}{0.5pt}
 \end{center}
 
 \newpage
+
+
