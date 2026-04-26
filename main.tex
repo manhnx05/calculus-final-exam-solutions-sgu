@@ -1,0 +1,206 @@
+\input{config/preamble.tex}
+
+\title{\textbf{Saigon University Exams \& Solutions}}
+\author{Mathematics Department}
+\date{Academic Year 2025-2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+% ================== EXAM PAPERS ==================
+\part*{EXAM PAPERS}
+
+\input{exams/exam1_multivariable.tex}
+
+\input{exams/exam2_abstract_algebra.tex}
+
+\input{exams/exam3_functional_analysis.tex}
+
+% ================== SOLUTIONS ==================
+\part*{SOLUTIONS}
+
+\input{solutions/exam1_solutions.tex}
+
+\input{solutions/exam2_solutions.tex}
+
+\input{solutions/exam3_solutions.tex}
+
+% ================== END ==================
+\newpage
+\begin{center}
+\textbf{\Large END OF DOCUMENT}
+\end{center}
+
+\end{document}
+
+\vspace{0.2cm}
+\noindent \textbf{Câu 3 (3,0 điểm).} Xét không gian $\mathbb{R}^4$ với chuẩn Euclide $\|(x_1, x_2, x_3, x_4)\| = \sqrt{x_1^2 + x_2^2 + x_3^2 + x_4^2}$ với mọi $x = (x_1, x_2, x_3, x_4) \in \mathbb{R}^4$. Xét không gian con $M = \{(x_1, x_2, x_3, x_4) \in \mathbb{R}^4 : x_1 - x_2 = 0, x_2 - 2x_3 = 0, x_3 + x_4 = 0\}$ và ánh xạ $f : M \to \mathbb{R}$ cho bởi $f(x_1, x_2, x_3, x_4) = x_1 + x_2 - x_3 + 2x_4$ với mọi $x \in M$.
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item Chứng minh $f$ là phiếm hàm tuyến tính liên tục trên $M$.
+    \item Chứng minh rằng tồn tại phiếm hàm tuyến tính liên tục $F : \mathbb{R}^4 \to \mathbb{R}$ sao cho $F|_M = f$ và $\|F\|_{B(\mathbb{R}^4, \mathbb{R})} = \|f\|_{B(M, \mathbb{R})}$. Tìm công thức cụ thể của toán tử $F$.
+\end{enumerate}
+
+\vspace{0.2cm}
+\noindent \textbf{Câu 4 (1,0 điểm).} Xét không gian Hilbert $H = L^2([-1, 1])$ với tích vô hướng cho bởi $\langle f,g \rangle = \int_{-1}^1 f(x)g(x)dx$. Gọi $M_e$ và $M_o$ lần lượt là tập hợp các hàm số chẵn và hàm số lẻ thuộc $H$.
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item Chứng minh rằng $M_e$ và $M_o$ là hai không gian con trực giao của $H$.
+    \item Xét hàm số $f(x) = x^3 + 3x^2 - 2x + 1$. Hãy tìm hình chiếu trực giao của $f$ lên không gian con $M_o$ và tính khoảng cách từ $f$ đến $M_o$.
+\end{enumerate}
+
+\vspace{0.5cm}
+\begin{center}
+\textbf{- Hết -}
+\end{center}
+
+\end{document}
+
+
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc} % Hỗ trợ tiếng Việt
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\begin{document}
+
+% Phần tiêu đề
+\noindent
+\begin{minipage}{0.45\textwidth}
+    \centering
+    TRƯỜNG ĐẠI HỌC SÀI GÒN\\
+    \vspace{0.2cm}
+    ĐỀ THI SỐ 2
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \textbf{ĐỀ THI KẾT THÚC HỌC PHẦN}\\
+    Học phần: Đại số đại cương\\
+    Mã học phần: 801022\\
+    \textit{Thời gian làm bài: 90 phút, không kể thời gian phát đề}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\rule{\textwidth}{0.5pt}\\ % Đường kẻ ngang mờ
+Học kì: II \dotfill Năm học: 2025 -- 2026 \dotfill \\
+Trình độ đào tạo: Đại học \dotfill Hình thức đào tạo: Chính quy \dotfill \\
+Họ tên sinh viên: \dotfill Mã số sinh viên: \dotfill \\
+\rule{\textwidth}{0.5pt}
+
+\vspace{0.5cm}
+\begin{center}
+    \textit{Sinh viên \textbf{KHÔNG} sử dụng tài liệu. Cán bộ coi thi không giải thích gì thêm.}
+\end{center}
+
+\vspace{0.5cm}
+% Nội dung đề thi
+\noindent \textbf{Câu 1. (3,0 điểm)} Trên tập hợp $\mathbb{Z}$ các số nguyên, cho phép toán $(*)$ xác định như sau:
+$$a * b = a + b + 2026 \quad \text{với mọi } a, b \text{ thuộc } \mathbb{Z}.$$
+\indent a) Chứng minh rằng tập hợp $\mathbb{Z}$ cùng với phép toán $(*)$ là một nhóm.\\
+\indent b) Tập hợp $X = \{4k + 2 \mid k \in \mathbb{Z}\}$ có phải là nhóm con của nhóm $(\mathbb{Z}, *)$ không? Giải thích.
+
+\vspace{0.3cm}
+\noindent \textbf{Câu 2. (1,5 điểm)} Cho $X = \langle x \rangle_m$ là nhóm nhân cyclic cấp $m$ sinh bởi $x$ và $Y = \langle y \rangle_n$ là nhóm nhân cyclic cấp $n$ sinh bởi $y$. Chứng minh rằng quy tắc $\varphi: X \to Y; x^l \mapsto (y^k)^l$ ($k \in \mathbb{N}^*$) là một đồng cấu khi $km$ chia hết cho $n$.
+
+\vspace{0.3cm}
+\noindent \textbf{Câu 3. (2,0 điểm)} Cho tập hợp $\mathbb{Z}(\sqrt{2}) = \{a + b\sqrt{2} \mid a, b \in \mathbb{Z}\}$.\\
+\indent a) Chứng minh rằng $\mathbb{Z}(\sqrt{2})$ là một vành với phép cộng và phép nhân các số thực.\\
+\indent b) Vành $\mathbb{Z}(\sqrt{2})$ có phải là trường con của trường số thực không? Giải thích.
+
+\vspace{0.3cm}
+\noindent \textbf{Câu 4. (1,5 điểm)}\\
+\indent a) Phát biểu định nghĩa về trường và miền nguyên.\\
+\indent b) Chứng minh rằng mọi trường đều là miền nguyên.\\
+\indent c) Với $n > 1$, vành $\mathbb{Z}^n$ có phải là miền nguyên không? Giải thích.
+
+\vspace{0.3cm}
+\noindent \textbf{Câu 5. (2,0 điểm)}\\
+\indent a) Dùng tiêu chuẩn Eisenstein để chứng minh đa thức $x^3 - 3x + 1$ là bất khả quy trong $\mathbb{Q}[x]$.\\
+\indent b) Trong vành $\mathbb{Z}_7[x]$, cho hai đa thức $f = x^3 + \overline{p}x + \overline{5}$ và $g = x^2 + \overline{5}x + \overline{6}$. Xác định $p$ để đa thức $f$ chia hết cho $g$.
+
+\vspace{1cm}
+\begin{center}
+    $\sim$ Hết $\sim$
+\end{center}
+
+\end{document}
+
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\textbf{TRƯỜNG ĐẠI HỌC SÀI GÒN}\\[0.2cm]
+\textbf{ĐỀ THI SỐ 1}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\textbf{ĐỀ THI KẾT THÚC HỌC PHẦN}\\
+Học phần: \textbf{Giải tích hàm nhiều biến (KHDL)}\\
+\textbf{Mã học phần:} 858002\\
+\textit{Thời gian làm bài: 90 phút, không kể thời gian phát đề}
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\noindent
+Học kỳ: II \dotfill Năm học: 2025 -- 2026 \dotfill \\
+Trình độ đào tạo: Đại học \dotfill Hình thức đào tạo: Chính quy \dotfill \\
+Họ tên sinh viên: \dotfill Mã số sinh viên: \dotfill
+
+\vspace{0.5cm}
+
+\begin{center}
+Sinh viên \textbf{KHÔNG} sử dụng tài liệu. Cán bộ coi thi không giải thích gì thêm.
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent\textbf{Câu 1. (5,0 điểm)} 
+\textbf{a)} Cho hàm số $u(x, y) = (x + y)\sqrt{x^2 + y^2}$. Chứng minh rằng:
+\[ x\frac{\partial u}{\partial x} + y\frac{\partial u}{\partial y} = 2u \quad \text{với mọi } (x, y) \neq (0,0). \]
+
+\noindent\textbf{b)} Tìm cực trị của hàm số: $z = (x + y)^2 - \frac{x^4}{2} - \frac{y^4}{2}$.
+
+\vspace{0.2cm}
+\noindent\textbf{c)} Tìm cực trị của hàm số: $z = 20x^{\frac{1}{4}}y^{\frac{3}{4}}$, thoả mãn điều kiện $x + 3y = 8 \ (x, y > 0)$.
+
+\vspace{0.3cm}
+\noindent\textbf{Câu 2. (3,0 điểm)} 
+\textbf{a)} Tính diện tích hình phẳng $D$ giới hạn bởi các đường
+\[ y = \frac{1}{x}; \ y = \frac{5}{x}; \ x = y^2 \text{ và } x = 5y^2. \]
+
+\noindent\textbf{b)} Mật độ dân số của một thành phố được cho bởi hàm $f(x, y) = 20000e^{\frac{-(x^2+y^2)}{5}}$, tính theo mặt phẳng toạ độ $Oxy$ với gốc là trung tâm thành phố (đơn vị tính là số người/km$^2$). Tính số dân của thành phố trong khu vực có bán kính 5 km tính từ trung tâm thành phố. Mật độ dân số trung bình của khu vực trên là bao nhiêu?
+
+\vspace{0.3cm}
+\noindent\textbf{Câu 3. (1,0 điểm)} Trong không gian $\mathbb{R}^3$ cho vật thể:
+\[ \Omega = \left\{ (x, y, z) \in \mathbb{R}^3 : \sqrt{x^2 + y^2} \le z \le 4 - \sqrt{x^2 + y^2} \right\} \]
+có khối lượng riêng phân bố theo hàm $\rho(x, y, z) = x^2 + y^2$. Tính khối lượng của $\Omega$.
+
+\vspace{0.3cm}
+\noindent\textbf{Câu 4. (1,0 điểm)} Tính tích phân đường
+\[ I = \int_\gamma (5y - 6^x)dx + (10x + 6^y)dy, \]
+trong đó $\gamma$ là đường tròn $x^2 + y^2 = 36$.
+
+\vspace{0.5cm}
+\begin{center}
+----------------HẾT----------------
+\end{center}
+
+\end{document}

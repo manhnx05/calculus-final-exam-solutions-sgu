@@ -1,0 +1,37 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Saigon University}
+\lhead{\nouppercase{\leftmark}}
+\cfoot{Page \thepage}
+
+% Define theorem styles
+\theoremstyle{definition}
+\newtheorem*{solution}{Solution}
+
+% Colors
+\definecolor{darkblue}{RGB}{0,0,139}
+\definecolor{darkgreen}{RGB}{34,139,34}
+
+% Section formatting
+\renewcommand{\section}[1]{
+    \vspace{0.5cm}
+    \noindent\textbf{\Large \textcolor{darkblue}{#1}}
+    \vspace{0.3cm}
+}
+
+\renewcommand{\subsection}[1]{
+    \noindent\textbf{\textcolor{darkgreen}{#1}}
+    \vspace{0.2cm}
+}

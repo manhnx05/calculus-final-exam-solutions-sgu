@@ -1,0 +1,226 @@
+\section*{Solutions: Exam 1 - Multivariable Calculus}
+
+\subsection{Problem 1a: Partial Derivatives and Euler's Theorem}
+
+\begin{solution}
+Given: $u(x, y) = (x + y)\sqrt{x^2 + y^2}$
+
+We need to prove: $x\frac{\partial u}{\partial x} + y\frac{\partial u}{\partial y} = 2u$
+
+\textbf{Step 1: Calculate} $\frac{\partial u}{\partial x}$
+
+$$\frac{\partial u}{\partial x} = \sqrt{x^2 + y^2} + (x + y) \cdot \frac{x}{\sqrt{x^2 + y^2}}$$
+
+$$= \frac{x^2 + y^2 + x(x + y)}{\sqrt{x^2 + y^2}} = \frac{2x^2 + y^2 + xy}{\sqrt{x^2 + y^2}}$$
+
+\textbf{Step 2: Calculate} $\frac{\partial u}{\partial y}$
+
+$$\frac{\partial u}{\partial y} = \sqrt{x^2 + y^2} + (x + y) \cdot \frac{y}{\sqrt{x^2 + y^2}}$$
+
+$$= \frac{x^2 + y^2 + y(x + y)}{\sqrt{x^2 + y^2}} = \frac{x^2 + 2y^2 + xy}{\sqrt{x^2 + y^2}}$$
+
+\textbf{Step 3: Verify the relation}
+
+$$x\frac{\partial u}{\partial x} + y\frac{\partial u}{\partial y} = \frac{x(2x^2 + y^2 + xy) + y(x^2 + 2y^2 + xy)}{\sqrt{x^2 + y^2}}$$
+
+$$= \frac{2x^3 + xy^2 + x^2y + x^2y + 2y^3 + xy^2}{\sqrt{x^2 + y^2}}$$
+
+$$= \frac{2x^3 + 2xy^2 + 2x^2y + 2y^3}{\sqrt{x^2 + y^2}} = \frac{2(x^3 + xy^2 + x^2y + y^3)}{\sqrt{x^2 + y^2}}$$
+
+$$= 2(x + y) \cdot \frac{x^2 + y^2}{\sqrt{x^2 + y^2}} = 2(x + y)\sqrt{x^2 + y^2} = 2u$$
+
+\textbf{Conclusion:} The relation is verified. $\blacksquare$
+\end{solution}
+
+\subsection{Problem 1b: Finding Extrema}
+
+\begin{solution}
+Given: $z = (x + y)^2 - \frac{x^4}{2} - \frac{y^4}{2}$
+
+\textbf{Step 1: Find critical points}
+
+$$\frac{\partial z}{\partial x} = 2(x + y) - 2x^3 = 0$$
+$$\frac{\partial z}{\partial y} = 2(x + y) - 2y^3 = 0$$
+
+From both equations: $2(x + y) = 2x^3 = 2y^3$
+
+This implies $x^3 = y^3$, so $x = y$.
+
+Substituting back: $2(2x) = 2x^3 \Rightarrow 4x = 2x^3 \Rightarrow x^3 = 2x$
+
+Thus: $x^3 - 2x = 0 \Rightarrow x(x^2 - 2) = 0$
+
+Critical points: $(0, 0)$, $(\sqrt{2}, \sqrt{2})$, $(-\sqrt{2}, -\sqrt{2})$
+
+\textbf{Step 2: Second partial derivatives}
+
+$$\frac{\partial^2 z}{\partial x^2} = 2 - 6x^2, \quad \frac{\partial^2 z}{\partial y^2} = 2 - 6y^2, \quad \frac{\partial^2 z}{\partial x \partial y} = 2$$
+
+\textbf{Step 3: Test critical points using Hessian}
+
+At $(0, 0)$: $D = (2)(2) - (2)^2 = 0$ (inconclusive)
+
+At $(\sqrt{2}, \sqrt{2})$: $\frac{\partial^2 z}{\partial x^2} = 2 - 12 = -10$, $D = (-10)(-10) - 4 = 96 > 0$ 
+
+Since $\frac{\partial^2 z}{\partial x^2} < 0$, this is a \textbf{local maximum}: $z = 8 - 4 = 4$
+
+At $(-\sqrt{2}, -\sqrt{2})$: By symmetry, also a \textbf{local maximum}: $z = 4$
+
+\end{solution}
+
+\subsection{Problem 1c: Constrained Optimization (Lagrange Multipliers)}
+
+\begin{solution}
+Given: $z = 20x^{1/4}y^{3/4}$, constraint: $x + 3y = 8$, $x, y > 0$
+
+\textbf{Method: Lagrange Multipliers}
+
+$$\nabla z = \lambda \nabla g, \text{ where } g = x + 3y - 8$$
+
+$$\frac{\partial z}{\partial x} = 5x^{-3/4}y^{3/4} = \lambda$$
+$$\frac{\partial z}{\partial y} = 15x^{1/4}y^{-1/4} = 3\lambda$$
+
+From the second equation: $\lambda = 5x^{1/4}y^{-1/4}$
+
+Equating: $5x^{-3/4}y^{3/4} = 5x^{1/4}y^{-1/4}$
+
+$$x^{-3/4}y^{3/4} = x^{1/4}y^{-1/4} \Rightarrow y = x$$
+
+Wait, let me recalculate: From $5x^{-3/4}y^{3/4} = 5x^{1/4}y^{-1/4}$:
+
+$$\frac{y^{3/4}}{x^{3/4}} = \frac{y^{-1/4}}{x^{-1/4}} \Rightarrow \left(\frac{y}{x}\right)^{3/4} = \left(\frac{x}{y}\right)^{1/4}$$
+
+$$\left(\frac{y}{x}\right)^{3/4} \cdot \left(\frac{y}{x}\right)^{1/4} = 1 \Rightarrow \left(\frac{y}{x}\right) = 1 \Rightarrow y = x$$
+
+But from constraint $x + 3x = 8 \Rightarrow x = 2, y = 2$
+
+Hmm, let me recalculate using the ratios properly:
+
+From $5x^{-3/4}y^{3/4} = \lambda$ and $15x^{1/4}y^{-1/4} = 3\lambda$:
+
+$$\frac{5x^{-3/4}y^{3/4}}{15x^{1/4}y^{-1/4}} = \frac{1}{3}$$
+
+$$\frac{5y}{15x} = \frac{1}{3} \Rightarrow \frac{y}{3x} = \frac{1}{3} \Rightarrow y = x$$
+
+From constraint: $x + 3x = 8 \Rightarrow x = 2$
+
+But this should give $2 + 6 = 8$, which checks out.
+
+Actually, let me recalculate the ratio: $\frac{1}{3} \cdot \frac{y}{x} = \frac{1}{3}$, so $y = x$.
+
+From $x + 3x = 8$: $4x = 8 \Rightarrow x = 2, y = 2$. But $2 + 3(2) = 8$? No, $2 + 6 = 8$ ✓
+
+Actually, $y = x$ gives $x + 3x = 4x = 8$, so $x = 2, y = 2$, but then $x + 3y = 2 + 6 = 8$ ✓
+
+Let me recalculate: If $y = x$, then $x + 3x = 8$, so $x = 2$ and we need $y = 2/3$.
+
+Wait, I made an error. Let me recalculate the condition from Lagrange:
+
+$5x^{-3/4}y^{3/4} = \lambda$ and $15x^{1/4}y^{-1/4} = 3\lambda$
+
+So: $15x^{1/4}y^{-1/4} = 3 \cdot 5x^{-3/4}y^{3/4}$
+
+$15x^{1/4}y^{-1/4} = 15x^{-3/4}y^{3/4}$
+
+$x^{1/4}y^{-1/4} = x^{-3/4}y^{3/4}$
+
+$x^{1/4 + 3/4} = y^{3/4 + 1/4}$
+
+$x = y$
+
+But $x + 3y = 8$ gives $x + 3x = 8$, so $x = 2, y = 2$.
+
+Check: $2 + 3(2) = 8$ ✓
+
+Maximum value: $z = 20(2)^{1/4}(2)^{3/4} = 20 \cdot 2 = 40$
+
+\textbf{Answer:} Maximum at $(2, 2)$ with $z_{\max} = 40$
+
+\end{solution}
+
+\subsection{Problem 2a: Double Integral in Changed Variables}
+
+\begin{solution}
+Region $D$ is bounded by $y = 1/x$, $y = 5/x$, $x = y^2$, $x = 5y^2$
+
+Use substitution: $u = xy$, $v = x/y^2$
+
+For the boundaries:
+- $y = 1/x$ gives $u = 1$
+- $y = 5/x$ gives $u = 5$
+- $x = y^2$ gives $v = 1$
+- $x = 5y^2$ gives $v = 5$
+
+The Jacobian: Using $x = \sqrt{uv}$, $y = \sqrt{u/v}$:
+
+$$\left|\frac{\partial(x,y)}{\partial(u,v)}\right| = \frac{1}{2v}$$
+
+$$\text{Area} = \int_1^5 \int_1^5 \frac{1}{2v} \, du \, dv = \int_1^5 \frac{4}{2v} \, dv = 2\ln(5)$$
+
+\textbf{Answer:} $\text{Area} = 2\ln(5)$
+
+\end{solution}
+
+\subsection{Problem 2b: Population Calculation}
+
+\begin{solution}
+Population density: $f(x, y) = 20000e^{-(x^2+y^2)/5}$
+
+Total population in radius 5 km:
+$$P = \int \int_D 20000e^{-(x^2+y^2)/5} dA$$
+
+Converting to polar coordinates: $x = r\cos\theta$, $y = r\sin\theta$, $0 \le r \le 5$, $0 \le \theta \le 2\pi$
+
+$$P = \int_0^{2\pi} \int_0^5 20000e^{-r^2/5} r \, dr \, d\theta$$
+
+Let $u = -r^2/5$, $du = -2r/5 dr$:
+
+$$\int_0^5 e^{-r^2/5} r \, dr = -\frac{5}{2}[e^{-r^2/5}]_0^5 = -\frac{5}{2}(e^{-5} - 1) = \frac{5}{2}(1 - e^{-5})$$
+
+$$P = 20000 \cdot 2\pi \cdot \frac{5}{2}(1 - e^{-5}) = 100000\pi(1 - e^{-5}) \approx 310,844 \text{ people}$$
+
+Average density: $\bar{f} = \frac{P}{\pi \cdot 5^2} = \frac{100000\pi(1 - e^{-5})}{25\pi} = 4000(1 - e^{-5}) \approx 3,942 \text{ people/km}^2$
+
+\end{solution}
+
+\subsection{Problem 3: Mass Calculation}
+
+\begin{solution}
+Object: $\Omega = \{(x,y,z) : \sqrt{x^2+y^2} \le z \le 4 - \sqrt{x^2+y^2}\}$
+
+Density: $\rho(x,y,z) = x^2 + y^2$
+
+In cylindrical coordinates $(r, \theta, z)$: $\rho = r^2$
+
+For each $r$, $z$ ranges from $r$ to $4-r$ (valid for $0 \le r \le 2$)
+
+$$m = \int_0^{2\pi} \int_0^2 \int_r^{4-r} r^2 \cdot r \, dz \, dr \, d\theta$$
+
+$$= \int_0^{2\pi} \int_0^2 r^3(4 - 2r) \, dr \, d\theta$$
+
+$$= 2\pi \int_0^2 (4r^3 - 2r^4) \, dr = 2\pi \left[r^4 - \frac{2r^5}{5}\right]_0^2$$
+
+$$= 2\pi\left(16 - \frac{64}{5}\right) = 2\pi \cdot \frac{16}{5} = \frac{32\pi}{5}$$
+
+\textbf{Answer:} $m = \frac{32\pi}{5}$
+
+\end{solution}
+
+\subsection{Problem 4: Line Integral (Green's Theorem)}
+
+\begin{solution}
+$$I = \int_\gamma (5y - 6^x)dx + (10x + 6^y)dy$$
+
+Using Green's Theorem with $\gamma$ being circle $x^2 + y^2 = 36$ (counterclockwise):
+
+$$I = \iint_D \left(\frac{\partial(10x + 6^y)}{\partial x} - \frac{\partial(5y - 6^x)}{\partial y}\right) dA$$
+
+$$= \iint_D (10 - 5) dA = 5 \iint_D dA$$
+
+$$= 5 \cdot \text{Area of circle} = 5 \cdot 36\pi = 180\pi$$
+
+\textbf{Answer:} $I = 180\pi$
+
+\end{solution}
+
+\newpage
